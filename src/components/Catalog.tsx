@@ -1,0 +1,315 @@
+"use client";
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
+import { X, MessageCircle, Info, CheckCircle2, Factory } from 'lucide-react';
+
+const products = [
+    {
+        id: 1,
+        name: "Venta de Calefón Instamatic 26L",
+        price: 340.00,
+        origin: "Taiwán",
+        capacity: "26L",
+        points: "5 puntos",
+        description: "Encendido automático. El estándar de oro en rendimiento térmico.",
+        image: "/images/product-instamatic-26l.webp",
+        features: ["Compatible con GLP", "Funciona con baja presión", "Sensores de sobrecalentamiento"]
+    },
+    {
+        id: 2,
+        name: "Calefón YANG Original 20L",
+        price: 340.00,
+        origin: "Japan",
+        capacity: "20L",
+        points: "4 puntos",
+        description: "Ideal para alta durabilidad. Ingeniería japonesa para el hogar.",
+        image: "/images/product-yang-20l.webp",
+        features: ["Tecnología de ahorro de gas", "Arranque ultra-rápido", "Cámara de combustión blindada"]
+    },
+    {
+        id: 3,
+        name: "Venta de Calefón Vaper 26L",
+        price: 330.00,
+        origin: "Taiwán",
+        capacity: "26L",
+        points: "5 puntos",
+        description: "Equilibrio perfecto entre potencia y precio. Garantía 12 meses.",
+        image: "/images/product-vaper-26l.webp",
+        features: ["Válvula de seguridad INEN", "Doble sensor de temperatura", "Display digital intuitivo"]
+    },
+    {
+        id: 4,
+        name: "Calefón Indra 26L Original",
+        price: 310.00,
+        origin: "Importado",
+        capacity: "26L",
+        points: "5 puntos",
+        description: "Robustez garantizada con amplia disponibilidad de repuestos en Loja.",
+        image: "/images/product-indra-26l.webp",
+        features: ["Fácil mantenimiento", "Cuerpo de acero inoxidable", "Regulador de caudal incorporado"]
+    },
+    {
+        id: 5,
+        name: "Venta de Calefón Xoha 20L",
+        price: 310.00,
+        origin: "Taiwán",
+        capacity: "20L",
+        points: "4 puntos",
+        description: "Encendido automático. Eficiencia diseñada para espacios modernos.",
+        image: "/images/product-xoha-20l.webp",
+        features: ["Diseño ultra-compacto", "Sistema anti-retorno", "Ahorro energético A+"]
+    },
+    {
+        id: 6,
+        name: "Calefón Alfa 26L Original",
+        price: 300.00,
+        origin: "Importado",
+        capacity: "26L",
+        points: "5 puntos",
+        description: "La opción más competitiva con garantía real de 12 meses.",
+        image: "/images/product-alfa-26l.webp",
+        features: ["Protección contra heladas", "Auto-diagnóstico de fallas", "Control de llama ionizado"]
+    }
+];
+
+export default function Catalog() {
+    const [filter, setFilter] = useState('Ver todos');
+    const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
+    const filteredProducts = filter === 'Ver todos'
+        ? products
+        : products.filter(p => p.capacity === filter);
+
+    const openWhatsApp = (product: any) => {
+        const message = encodeURIComponent(`Hola, estoy interesado en el Calefón ${product.name} de $${product.price.toFixed(2)}.`);
+        window.open(`https://wa.me/593994454838?text=${message}`, '_blank');
+    };
+
+    return (
+        <section id="productos" className="py-24 bg-gray-50/50">
+            <div className="container mx-auto px-4">
+
+                {/* Header Content */}
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="inline-block px-4 py-1.5 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-black tracking-widest uppercase mb-6"
+                    >
+                        CATÁLOGO DE INGENIERÍA TÉRMICA
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-3xl md:text-5xl lg:text-7xl font-black text-brand-dark leading-[1.1] mb-6">
+                        VENTA DE CALEFONES EN LOJA: <span className="text-brand-blue">CATÁLOGO ORIGINAL</span>
+                    </motion.h3>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="flex items-start justify-center space-x-3 bg-white p-6 rounded-2xl border border-blue-100 shadow-sm max-w-2xl mx-auto"
+                    >
+                        <Info className="text-brand-blue flex-shrink-0 mt-1" size={20} />
+                        <p className="text-left text-gray-700 font-medium italic">
+                            "Distribuidores autorizados de Instamatic y YANG. Equipos de 20L y 26L adaptados al clima de Loja. Incluimos asesoría técnica para tu barrio."
+                        </p>
+                    </motion.div>
+                </div>
+
+                {/* Filters */}
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    {['Ver todos', '26L', '20L'].map((f) => (
+                        <button
+                            key={f}
+                            onClick={() => setFilter(f)}
+                            className={`px-8 py-3 rounded-xl font-bold transition-all ${filter === f
+                                ? 'bg-brand-blue text-white shadow-xl shadow-blue-500/20'
+                                : 'bg-white text-gray-500 hover:bg-gray-100 border border-gray-100'
+                                }`}
+                        >
+                            {f === 'Ver todos' ? 'Ver Todos' : f === '26L' ? '26 Litros' : '20 Litros'}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Product Grid */}
+                <motion.div
+                    layout
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <AnimatePresence mode='popLayout'>
+                        {filteredProducts.map((product) => (
+                            <motion.div
+                                key={product.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                whileHover={{ y: -10 }}
+                                className="group cursor-pointer bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+                                onClick={() => setSelectedProduct(product)}
+                            >
+                                {/* Product Image */}
+                                <div className="relative h-72 overflow-hidden bg-gray-100">
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                    <div className="absolute top-4 left-4">
+                                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white ${product.capacity === '26L' ? 'bg-orange-500/90' : 'bg-blue-500/90'
+                                            }`}>
+                                            {product.capacity === '26L' ? 'Ideal para familias grandes' : 'Eficiencia compacta'}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Product Info */}
+                                <div className="p-8">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h4 className="text-xl font-bold text-brand-dark group-hover:text-brand-blue transition-colors">
+                                            {product.name}
+                                        </h4>
+                                    </div>
+
+                                    <div className="flex items-center space-x-4 mb-6">
+                                        <span className="text-3xl font-black text-brand-blue">
+                                            ${product.price.toFixed(2)}
+                                        </span>
+                                        <span className="text-xs font-bold text-gray-400 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
+                                            Iva incl.
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-center text-sm font-bold text-gray-500 underline decoration-brand-red/30 cursor-pointer">
+                                        Ver ficha técnica e ingeniería
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+
+                {/* Accessibility Modal */}
+                <Transition appear show={!!selectedProduct} as={Fragment}>
+                    <Dialog as="div" className="relative z-[1000]" onClose={() => setSelectedProduct(null)}>
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                        >
+                            <div className="fixed inset-0 bg-brand-dark/95 backdrop-blur-md" />
+                        </Transition.Child>
+
+                        <div className="fixed inset-0 overflow-y-auto">
+                            <div className="flex min-h-full items-center justify-center p-4 text-center">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="ease-out duration-300"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="ease-in duration-200"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white text-left align-middle shadow-2xl transition-all flex flex-col md:flex-row">
+
+                                        {/* Modal Close Button */}
+                                        <button
+                                            onClick={() => setSelectedProduct(null)}
+                                            className="absolute top-4 right-4 md:top-6 md:right-6 z-20 p-2 md:p-3 bg-gray-50/80 hover:bg-gray-100 rounded-full transition-colors backdrop-blur-sm"
+                                        >
+                                            <X size={20} className="text-brand-dark" />
+                                        </button>
+
+                                        {/* Image Column */}
+                                        <div className="w-full md:w-1/2 bg-gray-100 h-64 md:h-auto md:min-h-[400px]">
+                                            {selectedProduct && (
+                                                <img
+                                                    src={selectedProduct.image}
+                                                    alt={selectedProduct.name}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            )}
+                                        </div>
+
+                                        {/* Details Column */}
+                                        <div className="w-full md:w-1/2 p-6 md:p-14 flex flex-col">
+                                            <div className="mb-6 md:mb-8">
+                                                <span className="text-[10px] md:text-xs font-black tracking-widest text-brand-blue uppercase bg-blue-50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-6 inline-block">
+                                                    INGENIERÍA TÉRMICA LOJA
+                                                </span>
+                                                <Dialog.Title as="h3" className="text-2xl md:text-4xl font-black text-brand-dark leading-tight mb-3 md:mb-4">
+                                                    {selectedProduct?.name}
+                                                </Dialog.Title>
+                                                <p className="text-gray-500 font-medium text-base md:text-lg leading-relaxed">
+                                                    {selectedProduct?.description}
+                                                </p>
+                                            </div>
+
+                                            {/* Info Grid */}
+                                            <div className="grid grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+                                                <div className="border border-gray-100 p-3 md:p-4 rounded-2xl bg-gray-50/50">
+                                                    <span className="block text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Origen</span>
+                                                    <div className="flex items-center space-x-2">
+                                                        <Factory size={16} className="text-brand-blue" />
+                                                        <span className="font-bold text-brand-dark text-sm md:text-base">{selectedProduct?.origin}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="border border-gray-100 p-3 md:p-4 rounded-2xl bg-gray-50/50">
+                                                    <span className="block text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Capacidad</span>
+                                                    <span className="font-bold text-brand-dark text-sm md:text-base">{selectedProduct?.capacity} ({selectedProduct?.points})</span>
+                                                </div>
+                                            </div>
+
+                                            {/* Technical Benefits */}
+                                            <div className="space-y-3 md:space-y-4 mb-8 md:mb-12">
+                                                <h4 className="text-[10px] md:text-sm font-black text-brand-dark uppercase tracking-widest border-b border-gray-100 pb-2">Beneficios Técnicos</h4>
+                                                <div className="grid grid-cols-1 gap-2 md:gap-0">
+                                                    {selectedProduct?.features.map((feature: string, i: number) => (
+                                                        <div key={i} className="flex items-center space-x-3">
+                                                            <CheckCircle2 size={16} className="text-green-500 flex-shrink-0" />
+                                                            <span className="text-gray-700 font-medium text-xs md:text-sm">{feature}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Price & CTA */}
+                                            <div className="mt-auto flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 pt-6 md:pt-8 border-t border-gray-100">
+                                                <div className="text-center sm:text-left">
+                                                    <span className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Inversión Final</span>
+                                                    <span className="text-3xl md:text-4xl font-black text-brand-blue px-2">${selectedProduct?.price.toFixed(2)}</span>
+                                                </div>
+                                                <button
+                                                    onClick={() => openWhatsApp(selectedProduct)}
+                                                    className="w-full sm:w-auto flex items-center justify-center space-x-3 bg-brand-blue hover:bg-blue-700 text-white font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl shadow-xl transition-all text-sm md:text-base"
+                                                >
+                                                    <MessageCircle size={20} />
+                                                    <span>Consultar Disponibilidad</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                            </div>
+                        </div>
+                    </Dialog>
+                </Transition>
+
+            </div>
+        </section>
+    );
+}
