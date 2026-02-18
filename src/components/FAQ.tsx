@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Disclosure } from '@headlessui/react';
+import { useState } from 'react';
 import { Zap, Droplets, ShieldCheck, Settings, ChevronDown, MapPin } from 'lucide-react';
 
 const faqs = [
@@ -33,6 +33,8 @@ const faqs = [
 ];
 
 export default function FAQ() {
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+
     const faqJsonLd = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -84,47 +86,48 @@ export default function FAQ() {
                 </div>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, index) => (
-                        <Disclosure key={index} defaultOpen={index === 0}>
-                            {({ open }) => (
-                                <div className={`border-b border-gray-100 transition-all ${open ? 'pb-6' : 'pb-0'}`}>
-                                    <Disclosure.Button className="flex w-full items-center justify-between py-6 text-left focus:outline-none group">
-                                        <div className="flex items-center space-x-4">
-                                            <div className={`p-3 rounded-xl transition-colors ${open ? 'bg-blue-50' : 'bg-gray-50 group-hover:bg-gray-100'}`}>
-                                                {faq.icon}
-                                            </div>
-                                            <span className={`text-lg md:text-xl font-bold transition-colors ${open ? 'text-brand-blue' : 'text-brand-dark group-hover:text-brand-blue'}`}>
-                                                {faq.question}
-                                            </span>
+                    {faqs.map((faq, index) => {
+                        const isOpen = openIndex === index;
+                        return (
+                            <div key={index} className={`border-b border-gray-100 transition-all ${isOpen ? 'pb-6' : 'pb-0'}`}>
+                                <button
+                                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                                    className="flex w-full items-center justify-between py-6 text-left focus:outline-none group"
+                                >
+                                    <div className="flex items-center space-x-4">
+                                        <div className={`p-3 rounded-xl transition-colors ${isOpen ? 'bg-blue-50' : 'bg-gray-50 group-hover:bg-gray-100'}`}>
+                                            {faq.icon}
                                         </div>
-                                        <ChevronDown
-                                            className={`text-gray-400 transition-transform duration-300 ${open ? 'rotate-180 text-brand-blue' : ''}`}
-                                            size={20}
-                                        />
-                                    </Disclosure.Button>
+                                        <span className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? 'text-brand-blue' : 'text-brand-dark group-hover:text-brand-blue'}`}>
+                                            {faq.question}
+                                        </span>
+                                    </div>
+                                    <ChevronDown
+                                        className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-blue' : ''}`}
+                                        size={20}
+                                    />
+                                </button>
 
-                                    <AnimatePresence>
-                                        {open && (
-                                            <Disclosure.Panel static className="overflow-hidden">
-                                                <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: 'auto', opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                                >
-                                                    <div className="pl-[72px] pr-12 pb-4">
-                                                        <p className="text-gray-600 leading-relaxed text-lg italic border-l-4 border-brand-red/20 pl-6 py-2">
-                                                            {faq.answer}
-                                                        </p>
-                                                    </div>
-                                                </motion.div>
-                                            </Disclosure.Panel>
-                                        )}
-                                    </AnimatePresence>
-                                </div>
-                            )}
-                        </Disclosure>
-                    ))}
+                                <AnimatePresence>
+                                    {isOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="pl-[72px] pr-12 pb-4">
+                                                <p className="text-gray-600 leading-relaxed text-lg italic border-l-4 border-brand-red/20 pl-6 py-2">
+                                                    {faq.answer}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
                 </div>
 
             </div>

@@ -14,7 +14,7 @@ const products = [
         origin: "Taiwán",
         capacity: "26L",
         points: "5 puntos",
-        description: "Encendido automático. El estándar de oro en rendimiento térmico.",
+        description: "Encendido automático. Alta calidad y durabilidad garantizada.",
         image: "/images/product-instamatic-26l.webp",
         features: ["Compatible con GLP", "Funciona con baja presión", "Sensores de sobrecalentamiento"]
     },
@@ -25,7 +25,7 @@ const products = [
         origin: "Japan",
         capacity: "20L",
         points: "4 puntos",
-        description: "Ideal para alta durabilidad. Ingeniería japonesa para el hogar.",
+        description: "Ideal para alta durabilidad. Tecnología de alta precisión para el hogar.",
         image: "/images/product-yang-20l.webp",
         features: ["Tecnología de ahorro de gas", "Arranque ultra-rápido", "Cámara de combustión blindada"]
     },
@@ -100,7 +100,7 @@ export default function Catalog() {
                         viewport={{ once: true }}
                         className="inline-block px-4 py-1.5 bg-brand-blue/10 text-brand-blue rounded-full text-xs font-black tracking-widest uppercase mb-6"
                     >
-                        CATÁLOGO DE INGENIERÍA TÉRMICA
+                        NUESTROS EQUIPOS DISPONIBLES
                     </motion.h2>
                     <motion.h3
                         initial={{ opacity: 0, y: 30 }}
@@ -108,7 +108,7 @@ export default function Catalog() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
                         className="text-3xl md:text-5xl lg:text-7xl font-black text-brand-dark leading-[1.1] mb-6">
-                        VENTA DE CALEFONES EN LOJA: <span className="text-brand-blue">CATÁLOGO ORIGINAL</span>
+                        VENTA DE CALEFONES EN LOJA: <span className="text-brand-blue">EQUIPOS ORIGINALES</span>
                     </motion.h3>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -119,7 +119,7 @@ export default function Catalog() {
                     >
                         <Info className="text-brand-blue flex-shrink-0 mt-1" size={20} />
                         <p className="text-left text-gray-700 font-medium italic">
-                            "Distribuidores autorizados de Instamatic y YANG. Equipos de 20L y 26L adaptados al clima de Loja. Incluimos asesoría técnica para tu barrio."
+                            "Distribuidores oficiales. Equipos de 20L y 26L ideales para Loja. Incluimos asesoría para la instalación en tu hogar."
                         </p>
                     </motion.div>
                 </div>
@@ -190,7 +190,7 @@ export default function Catalog() {
                                     </div>
 
                                     <div className="flex items-center text-sm font-bold text-gray-500 underline decoration-brand-red/30 cursor-pointer">
-                                        Ver ficha técnica e ingeniería
+                                        Ver detalles del equipo
                                     </div>
                                 </div>
                             </motion.div>
@@ -249,7 +249,7 @@ export default function Catalog() {
                                         <div className="w-full md:w-1/2 p-6 md:p-14 flex flex-col">
                                             <div className="mb-6 md:mb-8">
                                                 <span className="text-[10px] md:text-xs font-black tracking-widest text-brand-blue uppercase bg-blue-50 px-3 py-1.5 md:px-4 md:py-2 rounded-full mb-4 md:mb-6 inline-block">
-                                                    INGENIERÍA TÉRMICA LOJA
+                                                    ESPECIFICACIONES DEL EQUIPO
                                                 </span>
                                                 <Dialog.Title as="h3" className="text-2xl md:text-4xl font-black text-brand-dark leading-tight mb-3 md:mb-4">
                                                     {selectedProduct?.name}

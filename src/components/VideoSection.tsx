@@ -34,10 +34,10 @@ export default function VideoSection() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-6xl font-black text-brand-dark uppercase tracking-tighter leading-tight mb-4 px-2">
-                        Ingeniería que domina el <span className="text-brand-blue">clima de Loja</span>
+                        Calefones listos para el <span className="text-brand-blue">clima de Loja</span>
                     </h2>
                     <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto font-medium">
-                        Desde la presión atmosférica a 2,100 msnm hasta las ráfagas de viento, diseñamos sistemas que no fallan cuando más los necesitas.
+                        Equipos seleccionados y probados para funcionar sin problemas en la altura y el frío de nuestra ciudad.
                     </p>
                 </motion.div>
 

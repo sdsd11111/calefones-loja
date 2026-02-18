@@ -61,7 +61,7 @@ export default function Header() {
                             CALEFONES <span className="text-brand-blue">LOJA</span>
                         </span>
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mt-1">
-                            Ingeniería Térmica
+                            Venta y Reparación
                         </span>
                     </div>
                 </div>

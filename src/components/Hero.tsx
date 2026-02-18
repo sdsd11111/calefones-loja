@@ -49,7 +49,7 @@ export default function Hero() {
                         </h1>
 
                         <p className="hidden lg:block text-base sm:text-lg text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0">
-                            La solución definitiva para el agua caliente en tu hogar. Somos <span className="font-bold text-brand-dark">"Calefones Loja"</span>, ingeniería y servicio técnico garantizado en la <span className="font-bold text-brand-dark">Calle Olmedo</span>.
+                            La solución definitiva para el agua caliente en tu hogar. Somos <span className="font-bold text-brand-dark">"Calefones Loja"</span>, servicio técnico profesional y garantizado en la <span className="font-bold text-brand-dark">Calle Olmedo</span>.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

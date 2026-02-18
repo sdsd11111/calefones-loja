@@ -9,7 +9,7 @@ const services = [
     {
         title: "Reparación de Calefones",
         description: "¿Tu equipo no enciende o tiene fugas? Realizamos reparación de calefones en Loja con repuestos originales para todas las marcas (Instamatic, Yang).",
-        technical: "Diseño de ductos de evacuación con protección eólica para ráfagas de hasta 61 km/h y optimización estequiométrica para la altitud de Loja.",
+        technical: "Configuración de ductos con protección contra el viento y ajuste de combustión para el clima de Loja.",
         icon: <Settings className="text-white" size={24} />,
         image: "/images/service-installation.webp",
         delay: 0.1
@@ -25,7 +25,7 @@ const services = [
     {
         title: "Inspección y Diagnóstico",
         description: "Detectamos si hay un problema de presión de agua o gas. Inspección técnica a domicilio para solucionar fallas de encendido.",
-        technical: "Purga de aire en tuberías y diagnóstico de patologías de presión de agua mediante inspección sistemática de la red.",
+        technical: "Purga de aire en tuberías y diagnóstico de problemas de presión de agua mediante inspección de la red.",
         icon: <Wrench className="text-white" size={24} />,
         image: "/images/service-repair.webp",
         delay: 0.3
@@ -69,7 +69,7 @@ export default function Services() {
                         viewport={{ once: true }}
                         className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4"
                     >
-                        SOLUCIONES TÉCNICAS AVANZADAS
+                        NUESTROS SERVICIOS
                     </motion.h2>
                     <motion.h2
                         initial={{ opacity: 0, y: -20 }}
@@ -150,7 +150,7 @@ export default function Services() {
                                                     <div className="w-2 h-2 bg-white rounded-full" />
                                                 </div>
                                                 <p className="text-sm text-gray-500 leading-relaxed italic group-hover:text-gray-700 transition-colors">
-                                                    <span className="font-bold text-brand-dark not-italic group-hover:text-brand-blue">Especificación Clínica:</span> {service.technical}
+                                                    <span className="font-bold text-brand-dark not-italic group-hover:text-brand-blue">Detalle técnico:</span> {service.technical}
                                                 </p>
                                             </div>
                                         </div>
@@ -244,7 +244,7 @@ export default function Services() {
                                                 <div className="flex items-start space-x-3">
                                                     <CheckCircle2 size={24} className="text-brand-blue shrink-0 mt-0.5 md:mt-1" />
                                                     <p className="text-sm md:text-base text-gray-700 italic font-medium leading-relaxed">
-                                                        <span className="font-bold text-brand-blue block not-italic uppercase text-[10px] tracking-widest mb-1">Especificación de Ingeniería:</span>
+                                                        <span className="font-bold text-brand-blue block not-italic uppercase text-[10px] tracking-widest mb-1">Recomendación del técnico:</span>
                                                         {selectedService?.technical}
                                                     </p>
                                                 </div>
