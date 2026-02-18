@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://calefonesloja.com'),
+  metadataBase: new URL('https://calefones-loja.vercel.app'),
   title: {
     default: "Calefones Loja | Venta y Servicio Técnico en Loja, Ecuador",
     template: "%s | Calefones Loja"
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Calefones Loja | Venta y Servicio Técnico Garantizado",
     description: "Expertos en ingeniería térmica para tu hogar. Venta e instalación de las mejores marcas de calefones en Loja.",
-    url: 'https://calefonesloja.com',
+    url: 'https://calefones-loja.vercel.app',
     siteName: 'Calefones Loja',
     images: [
       {
-        url: '/Logo.jpg',
-        width: 1200,
-        height: 630,
+        url: 'https://calefones-loja.vercel.app/Logo.jpg',
+        width: 800,
+        height: 600,
         alt: 'Calefones Loja - Ingeniería Térmica',
       },
     ],
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Calefones Loja | Los mejores calefones en Loja",
     description: "Servicio técnico y venta de calefones con garantía total en Loja, Ecuador.",
-    images: ['/Logo.jpg'],
+    images: ['https://calefones-loja.vercel.app/Logo.jpg'],
   },
   robots: {
     index: true,
