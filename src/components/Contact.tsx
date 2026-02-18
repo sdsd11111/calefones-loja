@@ -22,7 +22,7 @@ export default function Contact() {
                                 DIRECCIÓN ESTRATÉGICA
                             </span>
                             <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-brand-dark mb-4 leading-tight">
-                                Centro de Ingeniería <br className="hidden sm:block" /> <span className="text-brand-blue">Térmica en Loja</span>
+                                Venta y Reparación de <br className="hidden sm:block" /> <span className="text-brand-blue">Calefones en Loja</span>
                             </h2>
 
                             <div className="flex flex-col space-y-6 mt-6 md:mt-8">
@@ -32,7 +32,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h4 className="text-base sm:text-lg font-bold text-brand-dark">Calle Olmedo entre Azuay y Mercadillo</h4>
-                                        <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a Radio Centinela del Sur"</p>
+                                        <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a San Sebastian"</p>
                                     </div>
                                 </div>
 

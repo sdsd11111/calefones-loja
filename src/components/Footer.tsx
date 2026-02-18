@@ -74,7 +74,7 @@ export default function Footer() {
                         <h4 className="text-xs font-black uppercase tracking-[0.2em] mb-8 text-gray-500">Atención Directa</h4>
                         <div className="space-y-6 flex flex-col items-center md:items-start">
                             <div className="flex flex-col items-center md:items-start space-y-3 text-sm">
-                                <span className="text-gray-300 font-medium text-center md:text-left">Calle Olmedo entre Azuay y Mercadillo (Junto a Radio Centinela del Sur), Loja, Ecuador.</span>
+                                <span className="text-gray-300 font-medium text-center md:text-left">Calle Olmedo entre Azuay y Mercadillo (Junto a San Sebastian), Loja, Ecuador.</span>
                             </div>
                             <div className="p-4 bg-brand-blue/10 rounded-2xl border border-brand-blue/20 flex items-center space-x-3 w-fit md:w-auto">
                                 <ShieldCheck className="text-brand-blue shrink-0" size={20} />

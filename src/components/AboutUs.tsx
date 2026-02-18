@@ -51,7 +51,7 @@ export default function AboutUs() {
         },
         {
             title: "Compromiso Local",
-            description: "Ubicados estratégicamente en la Calle Olmedo, junto a Radio Centinela del Sur, para inmediatez absoluta.",
+            description: "Ubicados estratégicamente en la Calle Olmedo, junto a San Sebastian, para inmediatez absoluta.",
             icon: <MapPin className="text-brand-blue" size={32} />,
             delay: 0.3
         }
@@ -75,7 +75,7 @@ export default function AboutUs() {
                                 Líderes en <span className="text-brand-red">Calefones en Loja</span> y el Sur del Ecuador
                             </h3>
                             <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 md:mb-6">
-                                Más de 1,000 hogares servidos nos convierten en la elección correcta. Estamos ubicados estratégicamente <span className="font-bold text-brand-dark">junto a Radio Centinela del Sur</span> para brindarte soporte inmediato.
+                                Más de 1,000 hogares servidos nos convierten en la elección correcta. Estamos ubicados estratégicamente <span className="font-bold text-brand-dark">junto a San Sebastian</span> para brindarte soporte inmediato.
                             </p>
                             <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
                                 En <span className="font-bold text-brand-dark">"Calefones Loja"</span>, no solo vendemos equipos; somos un centro de soluciones integrales con liderazgo técnico en el sur del Ecuador.
