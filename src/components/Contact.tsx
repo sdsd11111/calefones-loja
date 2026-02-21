@@ -142,17 +142,24 @@ export default function Contact() {
                                     const model = rawFormData.get('model');
                                     const msg = rawFormData.get('message') || 'Ninguno';
 
-                                    let text = `*NUEVA SOLICITUD WEB*%0A%0A*Nombre:* ${name}%0A*Sector/Barrio:* ${sector}%0A*Tipo de servicio:* ${service}%0A*Marca del Calefón:* ${brand}%0A*Modelo:* ${model}%0A%0A*Mensaje:* ${msg}`;
+                                    let messageText = `*🔥 NUEVA SOLICITUD WEB 🔥*\n\n` +
+                                        `👤 *Nombre:* ${name}\n` +
+                                        `📍 *Sector/Barrio:* ${sector}\n` +
+                                        `🛠️ *Servicio:* ${service}\n` +
+                                        `🏷️ *Marca:* ${brand}\n` +
+                                        `📦 *Modelo:* ${model}\n\n` +
+                                        `💬 *Mensaje:* ${msg}`;
 
                                     if (result.id && result.imageCount > 0) {
                                         const origin = window.location.origin;
-                                        text += `%0A%0A*📷 Fotos del calefón:*`;
+                                        messageText += `\n\n*📷 FOTOS DEL CALEFÓN:*`;
                                         for (let i = 1; i <= result.imageCount; i++) {
-                                            text += `%0A• Foto ${i}: ${origin}/api/images/${result.id}?slot=${i}`;
+                                            messageText += `\n• Foto ${i}: ${origin}/api/images/${result.id}?slot=${i}`;
                                         }
                                     }
 
-                                    window.open(`https://wa.me/593994454838?text=${text}`, '_blank');
+                                    const whatsappUrl = `https://wa.me/593994454838?text=${encodeURIComponent(messageText)}`;
+                                    window.open(whatsappUrl, '_blank');
 
                                     // Reset form and images
                                     (e.target as HTMLFormElement).reset();
