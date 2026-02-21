@@ -4,16 +4,30 @@ import sharp from 'sharp';
 
 async function compressImage(file: File): Promise<Buffer | null> {
   if (!file || file.size === 0) return null;
-  const buffer = Buffer.from(await file.arrayBuffer());
-  let compressed = await sharp(buffer)
-    .resize(1200, 1200, { fit: 'inside', withoutEnlargement: true })
-    .webp({ quality: 75 })
-    .toBuffer();
-  // Fallback to lower quality if still over 1MB
-  if (compressed.length > 1024 * 1024) {
-    compressed = await sharp(compressed).webp({ quality: 50 }).toBuffer();
+
+  // 1. Basic type validation
+  if (!file.type.startsWith('image/')) {
+    console.warn(`[API Contact] Skipping non-image file: ${file.name} (${file.type})`);
+    return null;
   }
-  return compressed;
+
+  try {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    let compressed = await sharp(buffer)
+      .resize(1200, 1200, { fit: 'inside', withoutEnlargement: true })
+      .webp({ quality: 75 })
+      .toBuffer();
+
+    // Fallback to lower quality if still over 1MB
+    if (compressed.length > 1024 * 1024) {
+      compressed = await sharp(compressed).webp({ quality: 50 }).toBuffer();
+    }
+    return compressed;
+  } catch (error) {
+    console.error(`[API Contact] Error processing image ${file.name}:`, error);
+    // If it's a "unsupported image format", we return null instead of crashing the API
+    return null;
+  }
 }
 
 export async function POST(request: Request) {
