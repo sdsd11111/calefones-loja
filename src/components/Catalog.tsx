@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { X, MessageCircle, Info, CheckCircle2, Factory } from 'lucide-react';
+import { X, MessageCircle, Info, CheckCircle2, Factory, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const products = [
     {
@@ -90,6 +90,7 @@ const products = [
 export default function Catalog() {
     const [filter, setFilter] = useState('Ver todos');
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const filteredProducts = filter === 'Ver todos'
         ? products
@@ -167,7 +168,10 @@ export default function Catalog() {
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 whileHover={{ y: -10 }}
                                 className="group cursor-pointer bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
-                                onClick={() => setSelectedProduct(product)}
+                                onClick={() => {
+                                    setSelectedProduct(product);
+                                    setCurrentImageIndex(0);
+                                }}
                             >
                                 {/* Product Image */}
                                 <div className="relative h-72 overflow-hidden bg-gray-100">
@@ -180,8 +184,7 @@ export default function Catalog() {
                                         <span className="px-4 py-1.5 bg-brand-red rounded-full text-[10px] font-black tracking-widest uppercase text-white shadow-lg">
                                             Garantía {product.warranty}
                                         </span>
-                                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white ${['20L', '26L'].includes(product.capacity) ? 'bg-orange-500/90' : 'bg-blue-500/90'
-                                            }`}>
+                                        <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white bg-brand-blue/90">
                                             {product.capacity} - {product.installation === 'Incluida' ? 'Instalación Gratis' : ''}
                                         </span>
                                     </div>
@@ -250,43 +253,65 @@ export default function Catalog() {
                                         </button>
 
                                         {/* Image Gallery Column */}
-                                        <div className="w-full md:w-1/2 bg-gray-50 flex flex-col">
+                                        <div className="w-full md:w-1/2 bg-gray-50 flex flex-col relative h-[400px] md:h-auto group/slider">
                                             {selectedProduct && (
-                                                <div className="flex flex-col h-full border-r border-gray-100">
-                                                    {/* Main Hero Image (Frontal) */}
-                                                    <div className="relative h-[60%] border-b border-gray-100">
-                                                        <img
-                                                            src={selectedProduct.images[0]}
-                                                            alt="Frontal"
+                                                <div className="relative h-full w-full overflow-hidden bg-white">
+                                                    <AnimatePresence mode="wait">
+                                                        <motion.img
+                                                            key={currentImageIndex}
+                                                            src={selectedProduct.images[currentImageIndex]}
+                                                            alt={`Product view ${currentImageIndex + 1}`}
+                                                            initial={{ opacity: 0, x: 20 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            exit={{ opacity: 0, x: -20 }}
+                                                            transition={{ duration: 0.3 }}
                                                             className="w-full h-full object-cover"
                                                         />
-                                                        <span className="absolute bottom-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-white/10">
-                                                            VISTA FRONTAL
-                                                        </span>
+                                                    </AnimatePresence>
+
+                                                    {/* Navigation Arrows */}
+                                                    <div className="absolute inset-0 flex items-center justify-between p-4 md:opacity-0 md:group-hover/slider:opacity-100 opacity-100 transition-opacity pointer-events-none">
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setCurrentImageIndex((prev) => (prev === 0 ? selectedProduct.images.length - 1 : prev - 1));
+                                                            }}
+                                                            className="p-2 rounded-full bg-white/80 backdrop-blur-md shadow-lg hover:bg-white text-brand-dark transition-all pointer-events-auto"
+                                                        >
+                                                            <ChevronLeft size={24} />
+                                                        </button>
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setCurrentImageIndex((prev) => (prev === selectedProduct.images.length - 1 ? 0 : prev + 1));
+                                                            }}
+                                                            className="p-2 rounded-full bg-white/80 backdrop-blur-md shadow-lg hover:bg-white text-brand-dark transition-all pointer-events-auto"
+                                                        >
+                                                            <ChevronRight size={24} />
+                                                        </button>
                                                     </div>
 
-                                                    {/* Secondary Images (Interna & Caja) */}
-                                                    <div className="flex flex-1">
-                                                        <div className="flex-1 relative border-r border-gray-100">
-                                                            <img
-                                                                src={selectedProduct.images[1]}
-                                                                alt="Interna"
-                                                                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                                    {/* Dots / Indicators */}
+                                                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+                                                        {selectedProduct.images.map((_: any, idx: number) => (
+                                                            <button
+                                                                key={idx}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setCurrentImageIndex(idx);
+                                                                }}
+                                                                className={`w-2 h-2 rounded-full transition-all ${idx === currentImageIndex
+                                                                    ? 'bg-brand-blue w-6'
+                                                                    : 'bg-white/50 hover:bg-white'}`}
                                                             />
-                                                            <span className="absolute bottom-3 left-3 bg-brand-blue/80 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">
-                                                                COMPONENTES INTERNOS
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex-1 relative">
-                                                            <img
-                                                                src={selectedProduct.images[2]}
-                                                                alt="Caja"
-                                                                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
-                                                            />
-                                                            <span className="absolute bottom-3 left-3 bg-brand-red/80 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">
-                                                                EMPAQUE ORIGINAL
-                                                            </span>
-                                                        </div>
+                                                        ))}
+                                                    </div>
+
+                                                    {/* Label overlay */}
+                                                    <div className="absolute top-6 left-6">
+                                                        <span className="bg-brand-dark/80 backdrop-blur-md text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-white/10 shadow-xl">
+                                                            {currentImageIndex === 0 ? 'Vista Frontal' : currentImageIndex === 1 ? 'Componentes' : 'Empaque'}
+                                                        </span>
                                                     </div>
                                                 </div>
                                             )}
@@ -370,7 +395,7 @@ export default function Catalog() {
                     </Dialog>
                 </Transition>
 
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }
