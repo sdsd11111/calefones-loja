@@ -8,12 +8,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat);
+  --font-heading: var(--font-anton);
 
-  --color-brand-blue: #0088CC;
+  --color-brand-blue: #08a0fe;
   --color-brand-red: #E30613;
-  --color-brand-dark: #1A1A1A;
+  --color-brand-dark: #1e3a8a;
+  --color-brand-celeste: #F0F9FF;
 }
 
 @media (prefers-color-scheme: dark) {

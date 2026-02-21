@@ -1,9 +1,52 @@
 "use client";
 
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Send, MessageCircle, Clock, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, Clock, ShieldCheck, ExternalLink, Image as ImageIcon, X as CloseIcon, Loader2, Plus } from 'lucide-react';
+
+// Max 3 image slots
+const MAX_IMAGES = 3;
 
 export default function Contact() {
+    const [isUploading, setIsUploading] = useState(false);
+    // Array of { file, preview } for each slot
+    const [images, setImages] = useState<Array<{ file: File; preview: string } | null>>([null, null, null]);
+
+    const fileInputRefs = [
+        useRef<HTMLInputElement>(null),
+        useRef<HTMLInputElement>(null),
+        useRef<HTMLInputElement>(null),
+    ];
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        if (file.size > 10 * 1024 * 1024) {
+            alert('La imagen es muy pesada. Máximo 10MB por foto.');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImages(prev => {
+                const next = [...prev];
+                next[index] = { file, preview: reader.result as string };
+                return next;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const removeImage = (index: number) => {
+        setImages(prev => {
+            const next = [...prev];
+            next[index] = null;
+            return next;
+        });
+        if (fileInputRefs[index].current) fileInputRefs[index].current!.value = '';
+    };
+
+    const filledCount = images.filter(Boolean).length;
+
     return (
         <section id="contacto" className="py-24 bg-gray-50/30">
             <div className="container mx-auto px-4">
@@ -21,41 +64,43 @@ export default function Contact() {
                             <span className="inline-block px-4 py-1.5 bg-brand-blue/10 text-brand-blue text-[10px] font-black tracking-widest uppercase rounded-full mb-6">
                                 DIRECCIÓN ESTRATÉGICA
                             </span>
-                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-brand-dark mb-4 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl text-brand-dark mb-4 leading-tight font-heading">
                                 Venta y Reparación de <br className="hidden sm:block" /> <span className="text-brand-blue">Calefones en Loja</span>
                             </h2>
 
                             <div className="flex flex-col space-y-6 mt-6 md:mt-8">
-                                <div className="flex items-start space-x-4">
-                                    <div className="p-3 bg-white rounded-2xl shadow-sm border border-gray-100 flex-shrink-0">
-                                        <MapPin className="text-brand-red" size={24} />
+                                <div className="flex items-start space-x-4 bg-white p-6 rounded-[2rem] border border-gray-100 shadow-xl">
+                                    <div className="p-4 bg-brand-red/10 rounded-2xl flex-shrink-0">
+                                        <MapPin className="text-brand-red" size={28} />
                                     </div>
                                     <div>
-                                        <h4 className="text-base sm:text-lg font-bold text-brand-dark">Calle Olmedo entre Azuay y Mercadillo</h4>
-                                        <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a San Sebastian"</p>
+                                        <h4 className="text-lg text-brand-dark font-heading">Calle Olmedo entre Azuay y Mercadillo</h4>
+                                        <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a San Sebastián y Radio Centinela del Sur"</p>
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <button
                                         onClick={() => window.location.href = 'tel:0994454838'}
-                                        className="flex-1 flex items-center justify-center space-x-3 bg-brand-dark hover:bg-black text-white font-black py-4 px-4 sm:px-6 rounded-2xl transition-all shadow-lg text-xs sm:text-sm"
+                                        className="flex-1 flex items-center justify-center space-x-3 bg-brand-dark hover:bg-black text-white font-black py-5 px-6 rounded-2xl transition-all shadow-xl text-xs uppercase tracking-widest"
                                     >
                                         <Phone size={18} />
                                         <span>LLAMAR AHORA</span>
                                     </button>
                                     <button
-                                        onClick={() => window.open('https://wa.me/593994454838', '_blank')}
-                                        className="flex-1 flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 text-white font-black py-4 px-4 sm:px-6 rounded-2xl transition-all shadow-lg text-xs sm:text-sm"
+                                        onClick={() => window.open('https://wa.me/593994454838?text=Hola,%20necesito%20ayuda%20urgente%20con%20mi%20calef%C3%B3n.', '_blank')}
+                                        className="flex-1 flex items-center justify-center space-x-3 bg-brand-red hover:bg-red-700 text-white font-black py-5 px-6 rounded-2xl transition-all shadow-xl text-xs uppercase tracking-widest shadow-brand-red/20"
                                     >
                                         <MessageCircle size={18} />
                                         <span>WHATSAPP TÉCNICO</span>
                                     </button>
                                 </div>
 
-                                <div className="flex items-center space-x-3 bg-brand-blue/5 border border-brand-blue/10 p-4 rounded-2xl">
-                                    <ShieldCheck className="text-brand-blue shrink-0" size={20} />
-                                    <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-brand-blue">Stock inmediato de repuestos originales en este local</span>
+                                <div className="flex items-center space-x-4 bg-brand-blue/5 border border-brand-blue/10 p-5 rounded-[2rem]">
+                                    <div className="p-2 bg-brand-blue/10 rounded-xl">
+                                        <ShieldCheck className="text-brand-blue shrink-0" size={24} />
+                                    </div>
+                                    <span className="text-xs font-black uppercase tracking-widest text-brand-blue leading-tight">Stock inmediato de repuestos <br /> originales en este local</span>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +108,7 @@ export default function Contact() {
                         {/* Compact Professional Form */}
                         <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-blue-500/5 border border-gray-100 mt-auto">
                             <div className="mb-6">
-                                <h3 className="text-xl font-black text-brand-dark flex items-center space-x-2">
+                                <h3 className="text-xl text-brand-dark flex items-center space-x-2 font-heading">
                                     <Clock className="text-brand-red" size={20} />
                                     <span>Asistencia Prioritaria</span>
                                 </h3>
@@ -71,30 +116,53 @@ export default function Contact() {
 
                             <form onSubmit={async (e) => {
                                 e.preventDefault();
-                                const formData = new FormData(e.currentTarget);
-                                const data = {
-                                    name: formData.get('name'),
-                                    sector: formData.get('sector'),
-                                    service: formData.get('service'),
-                                    message: formData.get('message'),
-                                };
+                                if (isUploading) return;
 
+                                setIsUploading(true);
                                 try {
-                                    const res = await fetch('/api/contact', {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify(data),
+                                    const rawFormData = new FormData(e.currentTarget);
+
+                                    // Append up to 3 image files
+                                    images.forEach((img, i) => {
+                                        if (img?.file) rawFormData.append(`image_${i + 1}`, img.file);
                                     });
 
-                                    if (res.ok) {
-                                        alert('Mensaje enviado con éxito. Nos pondremos en contacto pronto.');
-                                        (e.target as HTMLFormElement).reset();
-                                    } else {
-                                        alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+                                    const response = await fetch('/api/contact', {
+                                        method: 'POST',
+                                        body: rawFormData,
+                                    });
+
+                                    const result = await response.json();
+                                    if (!response.ok) throw new Error(result.error || 'Error al enviar');
+
+                                    const name = rawFormData.get('name');
+                                    const sector = rawFormData.get('sector');
+                                    const service = rawFormData.get('service');
+                                    const brand = rawFormData.get('brand');
+                                    const model = rawFormData.get('model');
+                                    const msg = rawFormData.get('message') || 'Ninguno';
+
+                                    let text = `*NUEVA SOLICITUD WEB*%0A%0A*Nombre:* ${name}%0A*Sector/Barrio:* ${sector}%0A*Tipo de servicio:* ${service}%0A*Marca del Calefón:* ${brand}%0A*Modelo:* ${model}%0A%0A*Mensaje:* ${msg}`;
+
+                                    if (result.id && result.imageCount > 0) {
+                                        const origin = window.location.origin;
+                                        text += `%0A%0A*📷 Fotos del calefón:*`;
+                                        for (let i = 1; i <= result.imageCount; i++) {
+                                            text += `%0A• Foto ${i}: ${origin}/api/images/${result.id}?slot=${i}`;
+                                        }
                                     }
-                                } catch (error) {
-                                    console.error('Error sending message:', error);
-                                    alert('Hubo un error al enviar el mensaje.');
+
+                                    window.open(`https://wa.me/593994454838?text=${text}`, '_blank');
+
+                                    // Reset form and images
+                                    (e.target as HTMLFormElement).reset();
+                                    setImages([null, null, null]);
+                                    fileInputRefs.forEach(r => { if (r.current) r.current.value = ''; });
+                                } catch (error: any) {
+                                    console.error('Error:', error);
+                                    alert('Hubo un error al procesar tu solicitud: ' + error.message);
+                                } finally {
+                                    setIsUploading(false);
                                 }
                             }} className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
@@ -102,36 +170,101 @@ export default function Contact() {
                                         name="name"
                                         type="text"
                                         required
-                                        placeholder="Nombre"
+                                        placeholder="Nombre completo"
                                         className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium"
                                     />
                                     <input
                                         name="sector"
                                         type="text"
                                         required
-                                        placeholder="Sector/Barrio"
+                                        placeholder="Sector/Barrio en Loja"
                                         className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium"
                                     />
                                 </div>
-                                <select name="service" required className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium appearance-none cursor-pointer">
-                                    <option value="Mantenimiento Anual">Mantenimiento Anual</option>
-                                    <option value="Reparación Urgente">Reparación Urgente</option>
-                                    <option value="Venta / Instalación">Venta / Instalación</option>
+
+                                <select name="service" required defaultValue="" className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium appearance-none cursor-pointer">
+                                    <option value="" disabled>Selecciona el tipo de servicio...</option>
+                                    <option value="Mantenimiento anual">Mantenimiento anual</option>
+                                    <option value="Reparación urgente">Reparación urgente</option>
+                                    <option value="Venta e instalación">Venta e instalación</option>
+                                    <option value="Asesoramiento personalizado">Asesoramiento personalizado</option>
                                 </select>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <input
+                                        name="brand"
+                                        type="text"
+                                        required
+                                        placeholder="Marca (Ej: Instamatic)"
+                                        className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium"
+                                    />
+                                    <select name="model" required defaultValue="" className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium appearance-none cursor-pointer">
+                                        <option value="" disabled>Modelo/Pilas...</option>
+                                        <option value="1 pila">1 pila</option>
+                                        <option value="2 pilas">2 pilas</option>
+                                        <option value="No sé">No lo sé</option>
+                                    </select>
+                                </div>
+
                                 <textarea
                                     name="message"
-                                    required
                                     rows={2}
-                                    placeholder="Mensaje breve..."
+                                    placeholder="Mensaje o síntoma (Opcional)..."
                                     className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all text-sm font-medium resize-none"
                                 ></textarea>
 
+                                {/* Multi-Image Upload (up to 3) */}
+                                <div>
+                                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
+                                        Fotos del calefón ({filledCount}/{MAX_IMAGES}) — <span className="text-brand-blue">Diagnóstico más rápido</span>
+                                    </p>
+                                    <div className="grid grid-cols-3 gap-2">
+                                        {images.map((img, index) => (
+                                            <div key={index}>
+                                                <input
+                                                    type="file"
+                                                    ref={fileInputRefs[index]}
+                                                    onChange={(e) => handleFileChange(e, index)}
+                                                    accept="image/*"
+                                                    className="hidden"
+                                                    id={`photo-upload-${index}`}
+                                                />
+                                                {!img ? (
+                                                    <label
+                                                        htmlFor={`photo-upload-${index}`}
+                                                        className="flex flex-col items-center justify-center gap-1.5 p-3 bg-blue-50/50 rounded-xl border border-dashed border-brand-blue/30 hover:border-brand-blue hover:bg-blue-50 transition-all cursor-pointer group aspect-square"
+                                                    >
+                                                        <Plus className="text-brand-blue/60 group-hover:text-brand-blue transition-colors" size={20} />
+                                                        <span className="text-[9px] font-black text-gray-400 uppercase tracking-wider">Foto {index + 1}</span>
+                                                    </label>
+                                                ) : (
+                                                    <div className="relative rounded-xl overflow-hidden border border-brand-blue/20 aspect-square">
+                                                        <img src={img.preview} alt={`Preview ${index + 1}`} className="w-full h-full object-cover" />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => removeImage(index)}
+                                                            className="absolute top-1 right-1 p-1 bg-brand-red text-white rounded-full shadow-md hover:scale-110 transition-transform"
+                                                        >
+                                                            <CloseIcon size={10} />
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
                                 <button
                                     type="submit"
-                                    className="w-full bg-brand-red hover:bg-red-700 text-white font-black py-4 px-8 rounded-xl shadow-lg shadow-brand-red/10 flex items-center justify-center space-x-3 transition-all active:scale-[0.98]"
+                                    disabled={isUploading}
+                                    className={`w-full ${isUploading ? 'bg-gray-400' : 'bg-[#25D366] hover:bg-[#20bd5a]'} text-white font-black py-4 px-8 rounded-xl shadow-lg shadow-[#25D366]/30 flex items-center justify-center space-x-3 transition-all active:scale-[0.98]`}
                                 >
-                                    <Send size={18} />
-                                    <span>SOLICITAR TÉCNICO</span>
+                                    {isUploading ? (
+                                        <Loader2 className="animate-spin" size={20} />
+                                    ) : (
+                                        <MessageCircle size={20} />
+                                    )}
+                                    <span>{isUploading ? 'PROCESANDO...' : 'ENVIAR DATOS A WHATSAPP'}</span>
                                 </button>
                             </form>
                         </div>
@@ -167,7 +300,7 @@ export default function Contact() {
                     </motion.div>
 
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }

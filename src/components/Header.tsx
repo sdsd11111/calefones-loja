@@ -6,42 +6,9 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
-    const [hidden, setHidden] = useState(false);
-
-    useEffect(() => {
-        let lastScrollY = window.scrollY;
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            // Show header if:
-            // 1. Scrolling UP (current < last)
-            // 2. OR near top (current < 100)
-            if (currentScrollY < lastScrollY || currentScrollY < 100) {
-                setHidden(false);
-            }
-            // Hide if scrolling DOWN and past threshold
-            else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
-                setHidden(true);
-            }
-
-            lastScrollY = currentScrollY;
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
-        <motion.header
-            initial="visible"
-            variants={{
-                visible: { y: 0 },
-                hidden: { y: "-100%" },
-            }}
-            animate={hidden ? "hidden" : "visible"}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/10 bg-white/90 backdrop-blur-xl shadow-sm"
+        <header
+            className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/10 bg-white/95 backdrop-blur-xl shadow-md"
         >
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">
 
@@ -57,10 +24,10 @@ export default function Header() {
                         />
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-brand-dark font-black text-lg sm:text-xl leading-none tracking-tighter">
+                        <span className="text-brand-red font-black text-lg sm:text-xl leading-none tracking-tighter">
                             CALEFONES <span className="text-brand-blue">LOJA</span>
                         </span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mt-1">
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-red mt-1">
                             Venta y Reparación
                         </span>
                     </div>
@@ -81,6 +48,6 @@ export default function Header() {
                 </div>
 
             </div>
-        </motion.header>
+        </header>
     );
 }

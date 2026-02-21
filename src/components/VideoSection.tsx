@@ -33,7 +33,7 @@ export default function VideoSection() {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-6xl font-black text-brand-dark uppercase tracking-tighter leading-tight mb-4 px-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-6xl text-brand-dark uppercase tracking-tighter leading-tight mb-4 px-2 font-heading">
                         Calefones listos para el <span className="text-brand-blue">clima de Loja</span>
                     </h2>
                     <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto font-medium">

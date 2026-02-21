@@ -69,7 +69,7 @@ export default function AnnouncementPopup() {
 
                             {/* Body */}
                             <div className="p-6">
-                                <h4 className="text-xl font-black text-brand-dark leading-tight mb-2 uppercase tracking-tighter">
+                                <h4 className="text-xl text-brand-dark leading-tight mb-2 uppercase tracking-tighter font-heading">
                                     {announcement.title}
                                 </h4>
                                 <p className="text-gray-500 text-sm font-bold leading-relaxed mb-6 line-clamp-2">

@@ -9,69 +9,81 @@ import { X, MessageCircle, Info, CheckCircle2, Factory } from 'lucide-react';
 const products = [
     {
         id: 1,
-        name: "Venta de Calefón Instamatic 26L",
+        name: "Calefón Instamatic 26L Original",
         price: 340.00,
         origin: "Taiwán",
         capacity: "26L",
         points: "5 puntos",
-        description: "Encendido automático. Alta calidad y durabilidad garantizada.",
-        image: "/images/product-instamatic-26l.webp",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Encendido automático. Alta calidad y durabilidad garantizada con certificación INEN.",
+        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
         features: ["Compatible con GLP", "Funciona con baja presión", "Sensores de sobrecalentamiento"]
     },
     {
         id: 2,
-        name: "Calefón YANG Original 20L",
+        name: "Calefón YANG 20L Original",
         price: 340.00,
         origin: "Japan",
         capacity: "20L",
         points: "4 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
         description: "Ideal para alta durabilidad. Tecnología de alta precisión para el hogar.",
-        image: "/images/product-yang-20l.webp",
+        images: ["/images/product-yang-20l.webp", "/images/product-yang-20l.webp", "/images/product-yang-20l.webp"],
         features: ["Tecnología de ahorro de gas", "Arranque ultra-rápido", "Cámara de combustión blindada"]
     },
     {
         id: 3,
-        name: "Venta de Calefón Vaper 26L",
+        name: "Calefón Instamatic 6L (Básica)",
+        price: 145.00,
+        origin: "Taiwán",
+        capacity: "6L",
+        points: "1 punto",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Perfecto para departamentos pequeños o un solo punto de agua.",
+        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
+        features: ["Diseño compacto", "Bajo consumo de gas", "Encendido electrónico"]
+    },
+    {
+        id: 4,
+        name: "Calefón YANG 10L Original",
+        price: 210.00,
+        origin: "Japan",
+        capacity: "10L",
+        points: "2 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Equilibro perfecto para hogares medianos con 2 puntos de agua.",
+        images: ["/images/product-yang-20l.webp", "/images/product-yang-20l.webp", "/images/product-yang-20l.webp"],
+        features: ["Control de temperatura", "Sensor de agotamiento de oxígeno", "Fácil instalación"]
+    },
+    {
+        id: 5,
+        name: "Calefón Instamatic 16L Original",
+        price: 285.00,
+        origin: "Taiwán",
+        capacity: "16L",
+        points: "3 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Gran capacidad para familias que requieren agua caliente constante.",
+        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
+        features: ["Modulación de llama", "Display digital", "Protección contra sobrepresión"]
+    },
+    {
+        id: 6,
+        name: "Calefón Vaper 26L Original",
         price: 330.00,
         origin: "Taiwán",
         capacity: "26L",
         points: "5 puntos",
-        description: "Equilibrio perfecto entre potencia y precio. Garantía 12 meses.",
-        image: "/images/product-vaper-26l.webp",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Equilibrio perfecto entre potencia y precio. Garantía real en Loja.",
+        images: ["/images/product-vaper-26l.webp", "/images/product-vaper-26l.webp", "/images/product-vaper-26l.webp"],
         features: ["Válvula de seguridad INEN", "Doble sensor de temperatura", "Display digital intuitivo"]
-    },
-    {
-        id: 4,
-        name: "Calefón Indra 26L Original",
-        price: 310.00,
-        origin: "Importado",
-        capacity: "26L",
-        points: "5 puntos",
-        description: "Robustez garantizada con amplia disponibilidad de repuestos en Loja.",
-        image: "/images/product-indra-26l.webp",
-        features: ["Fácil mantenimiento", "Cuerpo de acero inoxidable", "Regulador de caudal incorporado"]
-    },
-    {
-        id: 5,
-        name: "Venta de Calefón Xoha 20L",
-        price: 310.00,
-        origin: "Taiwán",
-        capacity: "20L",
-        points: "4 puntos",
-        description: "Encendido automático. Eficiencia diseñada para espacios modernos.",
-        image: "/images/product-xoha-20l.webp",
-        features: ["Diseño ultra-compacto", "Sistema anti-retorno", "Ahorro energético A+"]
-    },
-    {
-        id: 6,
-        name: "Calefón Alfa 26L Original",
-        price: 300.00,
-        origin: "Importado",
-        capacity: "26L",
-        points: "5 puntos",
-        description: "La opción más competitiva con garantía real de 12 meses.",
-        image: "/images/product-alfa-26l.webp",
-        features: ["Protección contra heladas", "Auto-diagnóstico de fallas", "Control de llama ionizado"]
     }
 ];
 
@@ -125,17 +137,17 @@ export default function Catalog() {
                 </div>
 
                 {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-4 mb-16">
-                    {['Ver todos', '26L', '20L'].map((f) => (
+                <div className="flex flex-wrap justify-center gap-3 mb-16">
+                    {['Ver todos', '6L', '10L', '16L', '20L', '26L'].map((f) => (
                         <button
                             key={f}
                             onClick={() => setFilter(f)}
-                            className={`px-8 py-3 rounded-xl font-bold transition-all ${filter === f
-                                ? 'bg-brand-blue text-white shadow-xl shadow-blue-500/20'
+                            className={`px-6 py-2.5 rounded-xl font-black text-xs uppercase tracking-widest transition-all ${filter === f
+                                ? 'bg-brand-blue text-white shadow-xl shadow-blue-500/20 scale-105'
                                 : 'bg-white text-gray-500 hover:bg-gray-100 border border-gray-100'
                                 }`}
                         >
-                            {f === 'Ver todos' ? 'Ver Todos' : f === '26L' ? '26 Litros' : '20 Litros'}
+                            {f === 'Ver todos' ? 'Ver Todos' : `${f} Litros`}
                         </button>
                     ))}
                 </div>
@@ -160,14 +172,17 @@ export default function Catalog() {
                                 {/* Product Image */}
                                 <div className="relative h-72 overflow-hidden bg-gray-100">
                                     <img
-                                        src={product.image}
+                                        src={product.images[0]}
                                         alt={product.name}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    <div className="absolute top-4 left-4">
-                                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white ${product.capacity === '26L' ? 'bg-orange-500/90' : 'bg-blue-500/90'
+                                    <div className="absolute top-4 left-4 flex flex-col gap-2">
+                                        <span className="px-4 py-1.5 bg-brand-red rounded-full text-[10px] font-black tracking-widest uppercase text-white shadow-lg">
+                                            Garantía {product.warranty}
+                                        </span>
+                                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white ${['20L', '26L'].includes(product.capacity) ? 'bg-orange-500/90' : 'bg-blue-500/90'
                                             }`}>
-                                            {product.capacity === '26L' ? 'Ideal para familias grandes' : 'Eficiencia compacta'}
+                                            {product.capacity} - {product.installation === 'Incluida' ? 'Instalación Gratis' : ''}
                                         </span>
                                     </div>
                                 </div>
@@ -175,7 +190,7 @@ export default function Catalog() {
                                 {/* Product Info */}
                                 <div className="p-8">
                                     <div className="flex justify-between items-start mb-4">
-                                        <h4 className="text-xl font-bold text-brand-dark group-hover:text-brand-blue transition-colors">
+                                        <h4 className="text-xl text-brand-dark group-hover:text-brand-blue transition-colors font-heading">
                                             {product.name}
                                         </h4>
                                     </div>
@@ -234,14 +249,46 @@ export default function Catalog() {
                                             <X size={20} className="text-brand-dark" />
                                         </button>
 
-                                        {/* Image Column */}
-                                        <div className="w-full md:w-1/2 bg-gray-100 h-64 md:h-auto md:min-h-[400px]">
+                                        {/* Image Gallery Column */}
+                                        <div className="w-full md:w-1/2 bg-gray-50 flex flex-col">
                                             {selectedProduct && (
-                                                <img
-                                                    src={selectedProduct.image}
-                                                    alt={selectedProduct.name}
-                                                    className="w-full h-full object-cover"
-                                                />
+                                                <div className="flex flex-col h-full border-r border-gray-100">
+                                                    {/* Main Hero Image (Frontal) */}
+                                                    <div className="relative h-[60%] border-b border-gray-100">
+                                                        <img
+                                                            src={selectedProduct.images[0]}
+                                                            alt="Frontal"
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                        <span className="absolute bottom-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-white/10">
+                                                            VISTA FRONTAL
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Secondary Images (Interna & Caja) */}
+                                                    <div className="flex flex-1">
+                                                        <div className="flex-1 relative border-r border-gray-100">
+                                                            <img
+                                                                src={selectedProduct.images[1]}
+                                                                alt="Interna"
+                                                                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                                            />
+                                                            <span className="absolute bottom-3 left-3 bg-brand-blue/80 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">
+                                                                COMPONENTES INTERNOS
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex-1 relative">
+                                                            <img
+                                                                src={selectedProduct.images[2]}
+                                                                alt="Caja"
+                                                                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                                            />
+                                                            <span className="absolute bottom-3 left-3 bg-brand-red/80 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest border border-white/10">
+                                                                EMPAQUE ORIGINAL
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             )}
                                         </div>
 
@@ -260,23 +307,37 @@ export default function Catalog() {
                                             </div>
 
                                             {/* Info Grid */}
-                                            <div className="grid grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
-                                                <div className="border border-gray-100 p-3 md:p-4 rounded-2xl bg-gray-50/50">
-                                                    <span className="block text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Origen</span>
+                                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                                                <div className="border border-gray-100 p-4 rounded-[1.5rem] bg-gray-50/50">
+                                                    <span className="block text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Garantía</span>
                                                     <div className="flex items-center space-x-2">
-                                                        <Factory size={16} className="text-brand-blue" />
-                                                        <span className="font-bold text-brand-dark text-sm md:text-base">{selectedProduct?.origin}</span>
+                                                        <CheckCircle2 size={16} className="text-brand-red" />
+                                                        <span className="font-bold text-brand-dark text-xs">{selectedProduct?.warranty}</span>
                                                     </div>
                                                 </div>
-                                                <div className="border border-gray-100 p-3 md:p-4 rounded-2xl bg-gray-50/50">
-                                                    <span className="block text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Capacidad</span>
-                                                    <span className="font-bold text-brand-dark text-sm md:text-base">{selectedProduct?.capacity} ({selectedProduct?.points})</span>
+                                                <div className="border border-gray-100 p-4 rounded-[1.5rem] bg-gray-50/50">
+                                                    <span className="block text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Instalación</span>
+                                                    <div className="flex items-center space-x-2">
+                                                        <CheckCircle2 size={16} className="text-brand-blue" />
+                                                        <span className="font-bold text-brand-dark text-xs">{selectedProduct?.installation}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="border border-gray-100 p-4 rounded-[1.5rem] bg-gray-50/50">
+                                                    <span className="block text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Origen</span>
+                                                    <div className="flex items-center space-x-2">
+                                                        <Factory size={16} className="text-brand-blue" />
+                                                        <span className="font-bold text-brand-dark text-xs">{selectedProduct?.origin}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="border border-gray-100 p-4 rounded-[1.5rem] bg-gray-50/50">
+                                                    <span className="block text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Capacidad</span>
+                                                    <span className="font-bold text-brand-dark text-xs">{selectedProduct?.capacity}</span>
                                                 </div>
                                             </div>
 
                                             {/* Technical Benefits */}
                                             <div className="space-y-3 md:space-y-4 mb-8 md:mb-12">
-                                                <h4 className="text-[10px] md:text-sm font-black text-brand-dark uppercase tracking-widest border-b border-gray-100 pb-2">Beneficios Técnicos</h4>
+                                                <h4 className="text-[10px] md:text-sm text-brand-dark uppercase tracking-widest border-b border-gray-100 pb-2 font-heading">Beneficios Técnicos</h4>
                                                 <div className="grid grid-cols-1 gap-2 md:gap-0">
                                                     {selectedProduct?.features.map((feature: string, i: number) => (
                                                         <div key={i} className="flex items-center space-x-3">

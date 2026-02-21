@@ -73,24 +73,27 @@ export default function Testimonials() {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-brand-dark mb-8 leading-tight uppercase tracking-tighter">
+                    <h2 className="text-3xl md:text-5xl lg:text-7xl text-brand-dark mb-8 leading-tight uppercase tracking-tighter font-heading">
                         La confianza de más de <span className="text-brand-blue">1,000 hogares</span> en Loja nos respalda
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-500 font-bold max-w-3xl mx-auto leading-relaxed mb-8">
                         Más de 20 años transformando el frío de la ciudad en la comodidad de una ducha caliente.
                     </p>
 
-                    {/* Google Rating Badge */}
-                    <motion.div
+                    {/* Google Rating Badge as a click-through link */}
+                    <motion.a
+                        href="https://share.google/mFCmdYJ7umyeIW3Ma"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="inline-flex items-center space-x-4 bg-white p-6 rounded-2xl shadow-xl border border-gray-100"
+                        className="inline-flex flex-col sm:flex-row items-center sm:items-stretch bg-white rounded-3xl shadow-xl hover:shadow-2xl border border-gray-100 hover:border-brand-blue/30 transition-all cursor-pointer group overflow-hidden"
                     >
-                        <div className="text-left">
-                            <div className="flex items-center space-x-2 mb-2">
-                                <span className="text-5xl font-black text-brand-dark">4.9</span>
+                        <div className="p-6 sm:p-8 text-center sm:text-left flex flex-col justify-center">
+                            <div className="flex flex-col sm:flex-row items-center sm:space-x-4 mb-2">
+                                <span className="text-5xl font-black text-brand-dark mb-2 sm:mb-0 leading-none">4.9</span>
                                 <div className="flex">
                                     {[...Array(5)].map((_, i) => (
                                         <motion.div
@@ -105,18 +108,23 @@ export default function Testimonials() {
                                             }}
                                         >
                                             <Star
-                                                size={24}
-                                                className="fill-yellow-400 text-yellow-400"
+                                                size={28}
+                                                className="fill-yellow-400 text-yellow-400 drop-shadow-sm"
                                             />
                                         </motion.div>
                                     ))}
                                 </div>
                             </div>
-                            <p className="text-sm font-bold text-gray-500">
+                            <p className="text-sm sm:text-base font-bold text-gray-500">
                                 Basado en <span className="text-brand-blue">33 opiniones</span> de Google
                             </p>
                         </div>
-                    </motion.div>
+                        <div className="bg-brand-blue/5 border-t sm:border-t-0 sm:border-l border-brand-blue/10 flex items-center justify-center p-4 sm:px-8 group-hover:bg-brand-blue transition-colors">
+                            <span className="text-brand-blue font-black uppercase tracking-widest text-xs group-hover:text-white transition-colors">
+                                Verificar <br className="hidden sm:block" /> reseñas
+                            </span>
+                        </div>
+                    </motion.a>
                 </motion.div>
 
                 {/* Infinite Slider */}
@@ -150,7 +158,7 @@ export default function Testimonials() {
                                         {testimonial.initials}
                                     </div>
                                     <div className="flex-1">
-                                        <h4 className="font-black text-brand-dark">{testimonial.name}</h4>
+                                        <h4 className="text-brand-dark font-heading">{testimonial.name}</h4>
                                         <p className="text-xs text-gray-400 font-bold">{testimonial.time}</p>
                                     </div>
                                 </div>

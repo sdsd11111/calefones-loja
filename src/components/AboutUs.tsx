@@ -44,8 +44,8 @@ export default function AboutUs() {
             delay: 0.1
         },
         {
-            title: "Originalidad Garantizada",
-            description: "Uso exclusivo de repuestos originales (serpentines de cobre puro, diafragmas de caucho virgen).",
+            title: "ORIGINALIDAD GARANTIZADA",
+            description: "Uso exclusivo de repuestos originales, garantizando seguridad, durabilidad y el correcto funcionamiento del calefón",
             icon: <Award className="text-brand-blue" size={32} />,
             delay: 0.2
         },
@@ -58,10 +58,13 @@ export default function AboutUs() {
     ];
 
     return (
-        <section id="quienes-somos" className="py-16 bg-[#F9FAFB] overflow-hidden">
-            <div className="container mx-auto px-4">
+        <section id="quienes-somos" className="py-24 bg-brand-dark overflow-hidden relative border-t border-brand-blue/10">
+            {/* Subtle Texture Overlay */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
-                <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
+            <div className="container mx-auto px-4 relative z-10">
+
+                <div className="flex flex-col lg:flex-row items-center gap-16 mb-20 text-white">
                     {/* Narrative Content */}
                     <div className="flex-1">
                         <motion.div
@@ -70,27 +73,41 @@ export default function AboutUs() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-xs sm:text-sm mb-4">MÁS QUE UNA OPCIÓN</h2>
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-tight mb-6 md:mb-8">
-                                Líderes en <span className="text-brand-red">Calefones en Loja</span> y el Sur del Ecuador
+                            <h2 className="text-brand-blue tracking-[0.2em] uppercase text-xs sm:text-sm mb-4 font-heading">MÁS QUE UNA OPCIÓN</h2>
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6 md:mb-8 font-heading">
+                                Más de <span className="text-brand-blue uppercase">20 años como líderes</span> en el sur del Ecuador
                             </h3>
-                            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 md:mb-6">
-                                Más de 1,000 hogares servidos nos convierten en la elección correcta. Estamos ubicados estratégicamente <span className="font-bold text-brand-dark">junto a San Sebastian</span> para brindarte soporte inmediato.
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 md:mb-6 font-medium">
+                                Más de 1,800 hogares servidos avalan nuestra trayectoria. Estamos ubicados en la <span className="font-bold text-white">Calle Olmedo</span> (entre Azuay y Mercadillo), <span className="font-bold text-white">junto a San Sebastián</span> y la Radio Centinela del Sur, cerca de la Escuela Miguel Riofrío.
                             </p>
-                            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
-                                En <span className="font-bold text-brand-dark">"Calefones Loja"</span>, no solo vendemos equipos; somos un centro de soluciones integrales con liderazgo técnico en el sur del Ecuador.
+                            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-8 md:mb-10 font-medium">
+                                En <span className="font-bold text-white uppercase italic">Calefones Loja</span> no solo vendemos calefones; somos un centro de soluciones integrales con liderazgo técnico y acompañamiento real.
                             </p>
 
-                            {/* Statistic Counter */}
-                            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100 flex items-center space-x-4 sm:space-x-6 max-w-sm w-full">
-                                <div className="bg-brand-blue/10 p-3 sm:p-4 rounded-full">
-                                    <Users className="text-brand-blue" size={28} />
-                                </div>
-                                <div>
-                                    <div className="text-2xl sm:text-3xl font-black text-brand-dark">
-                                        +<Counter target={1000} />
+                            {/* Statistic Counters */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+                                <div className="bg-white/5 p-6 rounded-[2rem] shadow-2xl border border-white/10 flex items-center space-x-4 backdrop-blur-sm">
+                                    <div className="bg-brand-blue/20 p-3 rounded-2xl shrink-0">
+                                        <Users className="text-brand-blue" size={24} />
                                     </div>
-                                    <div className="text-gray-500 font-medium italic text-xs sm:text-sm">Hogares Lojanos Protegidos</div>
+                                    <div>
+                                        <div className="text-2xl sm:text-3xl font-black text-white">
+                                            +<Counter target={1800} />
+                                        </div>
+                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Hogares servidos</div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/5 p-6 rounded-[2rem] shadow-2xl border border-white/10 flex items-center space-x-4 backdrop-blur-sm">
+                                    <div className="bg-brand-red/20 p-3 rounded-2xl shrink-0">
+                                        <Wrench className="text-brand-red" size={24} />
+                                    </div>
+                                    <div>
+                                        <div className="text-2xl sm:text-3xl font-black text-white">
+                                            +<Counter target={3500} />
+                                        </div>
+                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Asistencias técnicas</div>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
@@ -132,7 +149,6 @@ export default function AboutUs() {
                     </div>
                 </div>
 
-                {/* Pillars Section: Grid on Desktop, Slider on Mobile */}
                 <div className="md:hidden">
                     <motion.div
                         className="flex space-x-4 overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory"
@@ -147,15 +163,15 @@ export default function AboutUs() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full"
+                                    className="bg-white/5 p-8 rounded-[2.5rem] shadow-2xl border border-white/10 flex flex-col h-full backdrop-blur-sm"
                                 >
-                                    <div className="mb-4">
+                                    <div className="mb-6 p-4 bg-brand-blue/10 rounded-2xl w-fit">
                                         {pillar.icon}
                                     </div>
-                                    <h4 className="text-lg font-extrabold text-brand-dark mb-2">
+                                    <h4 className="text-xl text-white mb-3 font-heading">
                                         {pillar.title}
                                     </h4>
-                                    <p className="text-sm text-gray-500 leading-relaxed">
+                                    <p className="text-sm text-gray-300 leading-relaxed font-medium">
                                         {pillar.description}
                                     </p>
                                 </motion.div>
@@ -164,9 +180,9 @@ export default function AboutUs() {
                     </motion.div>
 
                     {/* Visual cue for swipe */}
-                    <div className="flex justify-center space-x-1.5 mt-2">
+                    <div className="flex justify-center space-x-2 mt-2">
                         {pillars.map((_, i) => (
-                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-blue/20" />
+                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-blue/40" />
                         ))}
                     </div>
                 </div>
@@ -179,13 +195,16 @@ export default function AboutUs() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: pillar.delay }}
-                            className="bg-white p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group"
+                            className="bg-white/5 p-10 rounded-[2.5rem] shadow-2xl border border-white/10 hover:border-brand-blue/30 transition-all group backdrop-blur-sm relative overflow-hidden"
                         >
-                            <div className="mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                            <div className="absolute top-0 right-0 p-8 opacity-[0.05] group-hover:opacity-[0.1] transition-opacity">
                                 {pillar.icon}
                             </div>
-                            <h4 className="text-lg sm:text-xl font-extrabold text-brand-dark mb-3 sm:mb-4">{pillar.title}</h4>
-                            <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
+                            <div className="mb-8 p-5 bg-brand-blue/10 rounded-2xl w-fit transform group-hover:scale-110 transition-transform duration-300">
+                                {pillar.icon}
+                            </div>
+                            <h4 className="text-xl text-white mb-4 tracking-tight uppercase tracking-widest text-xs border-b border-white/5 pb-4 font-heading">{pillar.title}</h4>
+                            <p className="text-sm text-gray-300 leading-relaxed font-medium">
                                 {pillar.description}
                             </p>
                         </motion.div>
