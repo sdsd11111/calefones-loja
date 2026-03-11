@@ -18,8 +18,8 @@ export default function TopBar() {
                     <div className="hidden sm:flex items-center space-x-4 md:space-x-6">
                         <div className="flex items-center space-x-2">
                             <Phone size={14} className="text-brand-blue" />
-                            <span className="hidden md:inline">Atención de Emergencias Loja: 0994454838</span>
-                            <span className="md:hidden">Emergencias: 0994454838</span>
+                            <span className="hidden md:inline">Atención de Emergencias Loja: 0981410309</span>
+                            <span className="md:hidden">Emergencias: 0981410309</span>
                         </div>
 
                         <div className="w-px h-3 bg-white/20" />
@@ -38,7 +38,7 @@ export default function TopBar() {
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
                             <Facebook size={16} />
                         </a>
-                        <a href="https://wa.me/593994454838" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                        <a href="https://wa.me/593981410309" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
                             <MessageCircle size={16} />
                         </a>
                     </div>

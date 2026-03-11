@@ -9,81 +9,185 @@ import { X, MessageCircle, Info, CheckCircle2, Factory, ChevronLeft, ChevronRigh
 const products = [
     {
         id: 1,
-        name: "Calefón Instamatic 26L Original",
-        price: 340.00,
-        origin: "Taiwán",
-        capacity: "26L",
-        points: "5 puntos",
-        warranty: "12 meses",
-        installation: "Incluida",
-        description: "Encendido automático. Alta calidad y durabilidad garantizada con certificación INEN.",
-        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
-        features: ["Compatible con GLP", "Funciona con baja presión", "Sensores de sobrecalentamiento"]
-    },
-    {
-        id: 2,
-        name: "Calefón YANG 20L Original",
-        price: 340.00,
-        origin: "Japan",
-        capacity: "20L",
-        points: "4 puntos",
-        warranty: "12 meses",
-        installation: "Incluida",
-        description: "Ideal para alta durabilidad. Tecnología de alta precisión para el hogar.",
-        images: ["/images/product-yang-20l.webp", "/images/product-yang-20l.webp", "/images/product-yang-20l.webp"],
-        features: ["Tecnología de ahorro de gas", "Arranque ultra-rápido", "Cámara de combustión blindada"]
-    },
-    {
-        id: 3,
-        name: "Calefón Instamatic 6L (Básica)",
-        price: 145.00,
-        origin: "Taiwán",
+        name: "Calefón RCA 6 Lts",
+        price: 85.00,
+        origin: "China",
         capacity: "6L",
         points: "1 punto",
         warranty: "12 meses",
         installation: "Incluida",
-        description: "Perfecto para departamentos pequeños o un solo punto de agua.",
-        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
-        features: ["Diseño compacto", "Bajo consumo de gas", "Encendido electrónico"]
+        description: "Este modelo de calefón de 6 litros es una solución práctica y eficiente para espacios reducidos y con consumos bajos. Es ideal para un servicio en específico, como duchas individuales o lavamanos, permitiendo un consumo eficiente de gas.",
+        images: ["/images/Calefón RCA 6 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Práctico y eficiente", "Ideal para espacios reducidos", "Bajo consumo de gas"]
     },
     {
-        id: 4,
-        name: "Calefón YANG 10L Original",
-        price: 210.00,
-        origin: "Japan",
+        id: 2,
+        name: "Calefón RCA 10 Lts",
+        price: 135.00,
+        origin: "China",
         capacity: "10L",
         points: "2 puntos",
         warranty: "12 meses",
         installation: "Incluida",
-        description: "Equilibro perfecto para hogares medianos con 2 puntos de agua.",
-        images: ["/images/product-yang-20l.webp", "/images/product-yang-20l.webp", "/images/product-yang-20l.webp"],
-        features: ["Control de temperatura", "Sensor de agotamiento de oxígeno", "Fácil instalación"]
+        description: "Este modelo proporciona un mayor caudal de agua caliente para un solo servicio, permitiendo una ducha más estable y confortable, incluso ante variaciones de presión. Un tamaño versátil para quienes quieren comodidad sin complicaciones.",
+        images: ["/images/CALEFON RCA 10 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Mayor caudal de agua", "Ducha estable y confortable", "Tamaño versátil"]
     },
     {
-        id: 5,
-        name: "Calefón Instamatic 16L Original",
-        price: 285.00,
-        origin: "Taiwán",
-        capacity: "16L",
+        id: 3,
+        name: "Calefón RCA 20 Lts",
+        price: 165.00,
+        origin: "China",
+        capacity: "20L",
         points: "3 puntos",
         warranty: "12 meses",
         installation: "Incluida",
-        description: "Gran capacidad para familias que requieren agua caliente constante.",
-        images: ["/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp", "/images/product-instamatic-26l.webp"],
-        features: ["Modulación de llama", "Display digital", "Protección contra sobrepresión"]
+        description: "El calefón RCA de 20 litros es un modelo diseñado para brindar un servicio funcional y confiable. Abastece con normalidad hasta dos servicios simultáneos, lo que lo convierte en una opción adecuada para hogares que buscan agua caliente estable a un costo accesible.",
+        images: ["/images/Calefón RCA 20 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Servicio funcional y confiable", "Abastece dos servicios simultáneos", "Costo accesible"]
+    },
+    {
+        id: 4,
+        name: "Calefón FLAMEX 20 Lts",
+        price: 310.00,
+        origin: "TAIWAN",
+        capacity: "20L",
+        points: "4 puntos",
+        warranty: "24 meses",
+        installation: "Incluida",
+        description: "Ideal para viviendas de 1 a 2 plantas, el calefón FLAMEX de 20 litros ofrece un consumo eficiente, constante y seguro. Destaca por su durabilidad de 8 a 10 años y por utilizar componentes de fácil mantenimiento, con repuestos accesibles y compatibles.",
+        images: ["/images/CALEFON FLAMEX 20 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Consumo eficiente y seguro", "Alta durabilidad (8-10 años)", "Fácil mantenimiento"]
+    },
+    {
+        id: 5,
+        name: "Calefón INSTAMATIC 20 Lts",
+        price: 345.00,
+        origin: "TAIWAN",
+        capacity: "20L",
+        points: "5 puntos",
+        warranty: "24 meses",
+        installation: "Incluida",
+        description: "Un calefón con historia y respaldo real. El modelo INSTAMATIC lleva más de 20 años siendo una de las marcas más utilizadas en Loja, elegido por su estabilidad, confianza y fácil acceso al soporte técnico a lo largo del tiempo.",
+        images: ["/images/Calefón Instamatic 20 Lts.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Respaldo y confianza", "Estabilidad comprobada", "Fácil acceso a soporte técnico"]
     },
     {
         id: 6,
-        name: "Calefón Vaper 26L Original",
-        price: 330.00,
-        origin: "Taiwán",
+        name: "Calefón YANG 20 Lts",
+        price: 390.00,
+        origin: "TAIWAN",
+        capacity: "20L",
+        points: "5 puntos",
+        warranty: "24 meses",
+        installation: "Incluida",
+        description: "Un calefón reconocido por su alta durabilidad a lo largo de los años. Con más de dos décadas en el mercado, YANG es sinónimo de resistencia, confiabilidad y desempeño constante incluso con el paso del tiempo. Su capacidad para dos servicios y su buen desempeño con baja presión lo convierten en una opción segura y duradera.",
+        images: ["/images/product-yang-20l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Alta durabilidad y resistencia", "Desempeño con baja presión", "Confiabilidad constante"]
+    },
+    {
+        id: 7,
+        name: "Calefón RCA 26 Lts",
+        price: 185.00,
+        origin: "China",
         capacity: "26L",
         points: "5 puntos",
         warranty: "12 meses",
         installation: "Incluida",
-        description: "Equilibrio perfecto entre potencia y precio. Garantía real en Loja.",
-        images: ["/images/product-vaper-26l.webp", "/images/product-vaper-26l.webp", "/images/product-vaper-26l.webp"],
-        features: ["Válvula de seguridad INEN", "Doble sensor de temperatura", "Display digital intuitivo"]
+        description: "Este modelo está pensado para quienes buscan mayor caudal de agua caliente sin elevar demasiado la inversión, el Calefón RCA 26 litros ofrece un rendimiento estable y eficiente para dos servicios simultáneos. Su mayor capacidad se traduce en más comodidad en cada ducha, manteniendo un equilibrio ideal entre consumo, funcionalidad y precio.",
+        images: ["/images/Calefon-a-Gas-RCA-26LT.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Mayor caudal de agua", "Rendimiento estable para dos servicios", "Equilibrio ideal"]
+    },
+    {
+        id: 8,
+        name: "Calefón VAPER 26 Lts",
+        price: 320.00,
+        origin: "TAIWAN",
+        capacity: "26L",
+        points: "5 puntos",
+        warranty: "18 meses",
+        installation: "Incluida",
+        description: "Este modelo de 26 litros destaca por su equilibrio entre eficiencia, confort y desempeño ya que su capacidad permite abastecer dos servicios simultáneos con un flujo constante de agua caliente, siendo una excelente opción para hogares que buscan rendimiento estable y una experiencia cómoda en el uso diario.",
+        images: ["/images/product-vaper-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Equilibrio entre eficiencia y confort", "Flujo constante de agua caliente", "Rendimiento estable"]
+    },
+    {
+        id: 9,
+        name: "Calefón FLAMEX 26 Lts",
+        price: 330.00,
+        origin: "TAIWAN",
+        capacity: "26L",
+        points: "5 puntos",
+        warranty: "24 meses",
+        installation: "Incluida",
+        description: "El calefón FLAMEX de 26 litros es una opción premium por durabilidad y resistencia; está fabricado con materiales de alta calidad que ofrece una vida útil estimada entre 10 y 12 años, manteniendo un funcionamiento estable y eficiente para tres servicios simultáneos. Una inversión accesible, pensada para quienes buscan tranquilidad y rendimiento a largo plazo.",
+        images: ["/images/Calefón FLAMEX 26 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Opción premium y resistente", "Vida útil de 10 a 12 años", "Eficiente para tres servicios simultáneos"]
+    },
+    {
+        id: 10,
+        name: "Calefón INSTAMATIC 26 LTS",
+        price: 365.00,
+        origin: "TAIWAN",
+        capacity: "26L",
+        points: "5 puntos",
+        warranty: "24 meses",
+        installation: "Incluida",
+        description: "Es uno de los modelos más vendidos en Loja, reconocido por su confiabilidad y rendimiento a lo largo de los años. Su capacidad permite abastecer hasta tres servicios simultáneamente, ofreciendo un suministro estable de agua caliente incluso en demandas más exigentes.",
+        images: ["/images/product-instamatic-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Confiabilidad y rendimiento", "Abastece hasta tres servicios simultáneamente", "Suministro estable de agua caliente"]
+    },
+    {
+        id: 11,
+        name: "Calefón ALFA 26 Litros",
+        price: 300.00,
+        origin: "China",
+        capacity: "26L",
+        points: "5 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Calefón a Gas de 26 litros Marca ALFA. Una excelente opción que combina gran capacidad con eficiencia energética para hogares con múltiples puntos de consumo.",
+        images: ["/images/product-alfa-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Gran capacidad 26L", "Eficiencia energética", "Diseño moderno"]
+    },
+    {
+        id: 12,
+        name: "Calefón XOHA 20 Lts",
+        price: 310.00,
+        origin: "China",
+        capacity: "20L",
+        points: "4 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Calefón a Gas marca XOHA de 20 litros. Ofrece un rendimiento confiable para el uso diario en hogares que buscan calidad a un precio competitivo.",
+        images: ["/images/product-xoha-20l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Rendimiento confiable", "Precio competitivo", "Sensor de seguridad"]
+    },
+    {
+        id: 13,
+        name: "Calefón INDRA 26 Lts",
+        price: 310.00,
+        origin: "China",
+        capacity: "26L",
+        points: "5 puntos",
+        warranty: "12 meses",
+        installation: "Incluida",
+        description: "Calefón a Gas de Encendido Automático. El modelo INDRA de 26 litros garantiza agua caliente rápida y segura para toda la familia con un sistema de encendido eficiente.",
+        images: ["/images/product-indra-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        features: ["Encendido automático", "Instalación incluida", "Alta capacidad"]
+    },
+    {
+        id: 14,
+        name: "Calefactor a Gas Exterior",
+        price: 285.00,
+        origin: "Importado",
+        capacity: "N/A",
+        points: "N/A",
+        warranty: "N/A",
+        installation: "No incluida",
+        description: "Calefactor a gas de pie para exteriores, ideal para patios, terrazas y jardines. Proporciona un ambiente cálido y confortable en espacios abiertos incluso en noches frías.",
+        images: ["/images/Calefactor a Gas Exterior.webp"],
+        features: ["Ideal para exteriores", "Ambiente cálido y confortable", "Fácil movilidad"]
     }
 ];
 
@@ -98,7 +202,7 @@ export default function Catalog() {
 
     const openWhatsApp = (product: any) => {
         const message = encodeURIComponent(`Hola, estoy interesado en el Calefón ${product.name} de $${product.price.toFixed(2)}.`);
-        window.open(`https://wa.me/593994454838?text=${message}`, '_blank');
+        window.open(`https://wa.me/593981410309?text=${message}`, '_blank');
     };
 
     return (
@@ -132,14 +236,14 @@ export default function Catalog() {
                     >
                         <Info className="text-brand-blue flex-shrink-0 mt-1" size={20} />
                         <p className="text-left text-gray-700 font-medium italic">
-                            "Distribuidores oficiales. Equipos de 20L y 26L ideales para Loja. Incluimos asesoría para la instalación en tu hogar."
+                            "Distribuidores oficiales de las marcas INSTAMATIC, YANG, FLAMEX y RCA, ofrecemos calefones de distintas capacidades, seleccionados para adaptarse a las necesidades reales de cada hogar y negocio"
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Filters */}
                 <div className="flex flex-wrap justify-center gap-3 mb-16">
-                    {['Ver todos', '6L', '10L', '16L', '20L', '26L'].map((f) => (
+                    {['Ver todos', '6L', '10L', '20L', '26L'].map((f) => (
                         <button
                             key={f}
                             onClick={() => setFilter(f)}
@@ -181,12 +285,16 @@ export default function Catalog() {
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute top-4 left-4 flex flex-col gap-2">
-                                        <span className="px-4 py-1.5 bg-brand-red rounded-full text-[10px] font-black tracking-widest uppercase text-white shadow-lg">
-                                            Garantía {product.warranty}
-                                        </span>
-                                        <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white bg-brand-blue/90">
-                                            {product.capacity} - {product.installation === 'Incluida' ? 'Instalación Gratis' : ''}
-                                        </span>
+                                        {product.warranty !== "N/A" && (
+                                            <span className="px-4 py-1.5 bg-brand-red rounded-full text-[10px] font-black tracking-widest uppercase text-white shadow-lg">
+                                                Garantía {product.warranty}
+                                            </span>
+                                        )}
+                                        {product.capacity !== "N/A" && (
+                                            <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg backdrop-blur-md border border-white/20 text-white bg-brand-blue/90">
+                                                {product.capacity} - {product.installation === 'Incluida' ? 'Instalación Gratis' : ''}
+                                            </span>
+                                        )}
                                     </div>
                                 </div>
 

@@ -12,7 +12,7 @@ const faqs = [
     },
     {
         question: "¿Tienen repuestos originales para la venta de calefones?",
-        answer: "Contamos con stock de repuestos originales Instamatic y YANG en nuestro local de la Calle Olmedo.",
+        answer: "Contamos con un stock completo de repuestos originales para calefones de 1 y 2 pilas en nuestro local físico ubicado junto a la Radio Centinela del Sur.",
         icon: <Droplets className="text-brand-blue" size={24} />
     },
     {

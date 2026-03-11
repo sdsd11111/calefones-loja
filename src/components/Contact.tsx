@@ -74,21 +74,21 @@ export default function Contact() {
                                         <MapPin className="text-brand-red" size={28} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg text-brand-dark font-heading">Calle Olmedo entre Azuay y Mercadillo</h4>
+                                        <h4 className="text-lg text-brand-dark font-heading">José Joaquín de Olmedo 11-80</h4>
                                         <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a San Sebastián y Radio Centinela del Sur"</p>
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <button
-                                        onClick={() => window.location.href = 'tel:0994454838'}
+                                        onClick={() => window.location.href = 'tel:0981410309'}
                                         className="flex-1 flex items-center justify-center space-x-3 bg-brand-dark hover:bg-black text-white font-black py-5 px-6 rounded-2xl transition-all shadow-xl text-xs uppercase tracking-widest"
                                     >
                                         <Phone size={18} />
                                         <span>LLAMAR AHORA</span>
                                     </button>
                                     <button
-                                        onClick={() => window.open('https://wa.me/593994454838?text=Hola,%20necesito%20ayuda%20urgente%20con%20mi%20calef%C3%B3n.', '_blank')}
+                                        onClick={() => window.open('https://wa.me/593981410309?text=Hola,%20necesito%20ayuda%20urgente%20con%20mi%20calef%C3%B3n.', '_blank')}
                                         className="flex-1 flex items-center justify-center space-x-3 bg-brand-red hover:bg-red-700 text-white font-black py-5 px-6 rounded-2xl transition-all shadow-xl text-xs uppercase tracking-widest shadow-brand-red/20"
                                     >
                                         <MessageCircle size={18} />
@@ -158,7 +158,7 @@ export default function Contact() {
                                         }
                                     }
 
-                                    const whatsappUrl = `https://wa.me/593994454838?text=${encodeURIComponent(messageText)}`;
+                                    const whatsappUrl = `https://wa.me/593981410309?text=${encodeURIComponent(messageText)}`;
                                     window.open(whatsappUrl, '_blank');
 
                                     // Reset form and images
@@ -286,7 +286,7 @@ export default function Contact() {
                     >
                         <div className="relative w-full min-h-[500px] lg:min-h-full bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white group flex flex-col">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1136.6322338272583!2d-79.20235508823526!3d-3.9961623867625515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cb490000000001%3A0x0000000000000000!2sCalle%20Olmedo%2C%20Loja!5e0!3m2!1ses-419!2sec!4v1700000000000!5m2!1ses-419!2sec"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.51177454986123!2d-79.20001909084205!3d-4.001055345831282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cb3939067825f9%3A0xb50916528a038ffa!2sCalefones%20Loja!5e0!3m2!1ses-419!2sec!4v1773266198308!5m2!1ses-419!2sec"
                                 className="absolute inset-0 w-full h-full"
                                 style={{ border: 0 }}
                                 loading="lazy"
@@ -296,7 +296,7 @@ export default function Contact() {
                             {/* External Link Button Overlay */}
                             <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 w-full px-6 sm:px-10 z-10">
                                 <button
-                                    onClick={() => window.open('https://maps.app.goo.gl/ahpngRBpppVsMyxc9', '_blank')}
+                                    onClick={() => window.open('https://maps.app.goo.gl/q6ny53YfumzmzPyw8', '_blank')}
                                     className="w-full bg-white/90 backdrop-blur-md hover:bg-white text-brand-dark font-black py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl sm:rounded-2xl shadow-2xl flex items-center justify-center space-x-3 transition-all border border-gray-100 group/btn text-xs sm:text-base"
                                 >
                                     <ExternalLink size={18} className="text-brand-blue group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />

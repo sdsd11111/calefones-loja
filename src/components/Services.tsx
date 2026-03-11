@@ -27,7 +27,7 @@ const services = [
         description: "Detectamos si hay un problema de presión de agua o gas. Inspección técnica a domicilio para solucionar fallas antes de que se agraven.",
         technical: "Una inspección a tiempo previene el 90% de fugas graves y daños irreversibles en la cámara de combustión.",
         icon: <Wrench className="text-white" size={24} />,
-        image: "/images/service-optimization.webp",
+        image: "/images/INSPECCIÓN Y DIAGNÓSTICO.webp",
         delay: 0.3
     },
     {
@@ -35,7 +35,7 @@ const services = [
         description: "Instalación segura bajo norma INEN. Garantizamos agua caliente sin riesgo de monóxido y protegidos contra los vientos de Loja.",
         technical: "Exige siempre el uso de mangueras certificadas y reguladores de gas originales Inen para evitar fugas invisibles.",
         icon: <Zap className="text-white" size={24} />,
-        image: "/images/service-installation.webp",
+        image: "/images/INSTALACIÓN CALEFÓN.webp",
         delay: 0.4
     }
 ];
