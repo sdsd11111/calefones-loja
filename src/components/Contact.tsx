@@ -74,7 +74,7 @@ export default function Contact() {
                                         <MapPin className="text-brand-red" size={28} />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg text-brand-dark font-heading">José Joaquín de Olmedo 11-80</h4>
+                                        <h4 className="text-lg text-brand-dark font-heading">Calle Olmedo entre Azuay y Mercadillo</h4>
                                         <p className="text-gray-500 font-bold italic text-sm sm:text-base">"Junto a San Sebastián y Radio Centinela del Sur"</p>
                                     </div>
                                 </div>

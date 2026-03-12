@@ -78,10 +78,10 @@ export default function AboutUs() {
                                 Más de <span className="text-brand-blue uppercase">20 años como líderes</span> en el sur del Ecuador
                             </h3>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4 md:mb-6 font-medium">
-                                Más de 1,800 hogares servidos avalan nuestra trayectoria. Estamos ubicados en la <span className="font-bold text-white">Calle Olmedo</span> (entre Azuay y Mercadillo), <span className="font-bold text-white">junto a San Sebastián</span> y la Radio Centinela del Sur, cerca de la Escuela Miguel Riofrío.
+                                Más de <span className="font-bold text-white">2,000 hogares disfrutan de agua caliente junto a nosotros</span>. Estamos ubicados en la <span className="font-bold text-white">Calle Olmedo</span> (entre Azuay y Mercadillo), <span className="font-bold text-white">junto a San Sebastián</span> y la Radio Centinela del Sur, cerca de la Escuela Miguel Riofrío.
                             </p>
                             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-8 md:mb-10 font-medium">
-                                En <span className="font-bold text-white uppercase italic">Calefones Loja</span> no solo vendemos calefones; somos un centro de soluciones integrales con liderazgo técnico y acompañamiento real.
+                                En <span className="font-bold text-white uppercase italic">CALEFONES LOJA</span> no solo vendemos calefones; somos un centro de soluciones integrales con liderazgo técnico y acompañamiento real en el sur del Ecuador.
                             </p>
 
                             {/* Statistic Counters */}
@@ -92,9 +92,9 @@ export default function AboutUs() {
                                     </div>
                                     <div>
                                         <div className="text-2xl sm:text-3xl font-black text-white">
-                                            +<Counter target={1800} />
+                                            +<Counter target={2000} />
                                         </div>
-                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Hogares servidos</div>
+                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Hogares disfrutan de agua <br /> caliente junto a nosotros</div>
                                     </div>
                                 </div>
 
@@ -104,9 +104,9 @@ export default function AboutUs() {
                                     </div>
                                     <div>
                                         <div className="text-2xl sm:text-3xl font-black text-white">
-                                            +<Counter target={3500} />
+                                            +<Counter target={4500} />
                                         </div>
-                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Asistencias técnicas</div>
+                                        <div className="text-gray-400 font-bold uppercase tracking-widest text-[9px] leading-tight">Asistencias técnicas realizadas <br /> dentro y fuera de la ciudad</div>
                                     </div>
                                 </div>
                             </div>

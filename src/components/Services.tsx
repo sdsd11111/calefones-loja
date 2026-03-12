@@ -16,8 +16,8 @@ const services = [
     },
     {
         title: "MANTENIMIENTO DE CALEFONES",
-        description: "Nuestro mantenimiento preventivo y correctivo incluye limpieza profunda, calibración, revisión y reemplazo de componentes críticos para asegurar un funcionamiento óptimo y continuo.",
-        technical: "Si tu calefón lleva más de 8 años en funcionamiento y continúa operando, el mantenimiento preventivo es fundamental para prolongar su vida útil y asegurar un rendimiento óptimo. RECUERDA… Cuidar tu calefón es cuidar tu hogar",
+        description: "Visitamos su domicilio sin costo para revisar su calefón y evaluar el estado de sus componentes, así como las condiciones necesarias para una correcta instalación.",
+        technical: "Evaluar previamente el gas, la presión de agua y la ubicación es clave para evitar fallas y riesgos futuros.",
         icon: <ShieldCheck className="text-white" size={24} />,
         image: "/images/service-maintenance.webp",
         delay: 0.2
@@ -31,9 +31,9 @@ const services = [
         delay: 0.3
     },
     {
-        title: "Instalación Certificada",
-        description: "Instalación segura bajo norma INEN. Garantizamos agua caliente sin riesgo de monóxido y protegidos contra los vientos de Loja.",
-        technical: "Exige siempre el uso de mangueras certificadas y reguladores de gas originales Inen para evitar fugas invisibles.",
+        title: "INSTALACIÓN CERTIFICADA",
+        description: "Instalación segura conforme a la norma INEN, garantizando agua caliente de inmediato y sin riesgo de acumulación de monóxido de carbono.",
+        technical: "Exige siempre el uso de mangueras certificadas y reguladores de gas ideales según la distancia para prevenir fugas invisibles y garantizar una instalación segura.",
         icon: <Zap className="text-white" size={24} />,
         image: "/images/INSTALACIÓN CALEFÓN.webp",
         delay: 0.4
@@ -87,7 +87,7 @@ export default function Services() {
                         transition={{ delay: 0.2 }}
                         className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
                     >
-                        “En Loja, la alta presión de agua (sector Daniel Álvarez) y la baja presión (Los Rosales), sumado al uso inadecuado, requieren un cuidado especializado. Nuestros protocolos técnicos protegen tu inversión.”
+                        “En Loja, la alta presión de agua y el uso inadecuado de los calefones requieren un cuidado especializado. Nuestros protocolos técnicos protegen tu inversión y garantizan un funcionamiento seguro bajo las condiciones locales.”
                     </motion.p>
                 </div>
 
