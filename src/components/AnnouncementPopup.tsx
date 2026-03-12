@@ -77,7 +77,7 @@ export default function AnnouncementPopup() {
                                 </p>
 
                                 <button
-                                    onClick={() => window.open(`https://wa.me/593994454838?text=Hola! Me interesa el anuncio: ${announcement.title}`, '_blank')}
+                                    onClick={() => window.open(`https://wa.me/593981410309?text=Hola! Me interesa el anuncio: ${announcement.title}`, '_blank')}
                                     className="w-full bg-brand-blue hover:bg-blue-700 text-white font-black py-4 px-6 rounded-xl shadow-xl shadow-blue-500/20 flex items-center justify-center space-x-3 transition-all"
                                 >
                                     <MessageCircle size={18} />

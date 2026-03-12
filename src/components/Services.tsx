@@ -169,7 +169,7 @@ export default function Services() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="inline-flex items-center space-x-4 bg-brand-red hover:bg-red-700 text-white font-black py-6 px-12 rounded-[2rem] shadow-2xl shadow-brand-red/30 transition-all uppercase tracking-[0.2em] text-sm"
-                        onClick={() => window.open('https://wa.me/593994454838?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20t%C3%A9cnicos.', '_blank')}
+                        onClick={() => window.open('https://wa.me/593981410309?text=Hola,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20t%C3%A9cnicos.', '_blank')}
                     >
                         <MessageCircle size={24} />
                         <span>Consultar ahora</span>
@@ -282,7 +282,7 @@ export default function Services() {
                                                 <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">Servicio <br /> Garantizado</span>
                                             </div>
                                             <button
-                                                onClick={() => window.open(`https://wa.me/593994454838?text=${encodeURIComponent('Hola, necesito información sobre el servicio de ' + selectedService?.title)}`, '_blank')}
+                                                onClick={() => window.open(`https://wa.me/593981410309?text=${encodeURIComponent('Hola, necesito información sobre el servicio de ' + selectedService?.title)}`, '_blank')}
                                                 className="w-full sm:w-auto flex items-center justify-center space-x-3 bg-brand-blue hover:bg-blue-700 text-white font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl shadow-xl transition-all text-sm md:text-base"
                                             >
                                                 <MessageCircle size={20} />

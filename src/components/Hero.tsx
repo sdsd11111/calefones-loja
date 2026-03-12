@@ -58,7 +58,7 @@ export default function Hero() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="w-full sm:w-auto flex items-center justify-center space-x-3 bg-brand-red hover:bg-red-700 text-white font-black py-5 px-10 rounded-2xl transition-all shadow-2xl shadow-brand-red/30 group"
-                                onClick={() => window.open('https://wa.me/593994454838?text=Hola,%20vengo%20de%20la%20web.%20Quiero%20agendar%20una%20visita%20t%C3%A9cnica%20lo%20antes%20posible.', '_blank')}
+                                onClick={() => window.open('https://wa.me/593981410309?text=Hola,%20vengo%20de%20la%20web.%20Quiero%20agendar%20una%20visita%20t%C3%A9cnica%20lo%20antes%20posible.', '_blank')}
                             >
                                 <MessageCircle size={22} className="group-hover:animate-bounce" />
                                 <span className="text-sm md:text-base uppercase tracking-widest">Solicitar Técnico Ahora</span>

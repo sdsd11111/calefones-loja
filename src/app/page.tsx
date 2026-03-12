@@ -20,7 +20,7 @@ export default function Home() {
     "image": "https://calefonesloja.com/Logo.jpg",
     "@id": "https://calefonesloja.com",
     "url": "https://calefonesloja.com",
-    "telephone": "+593994454838",
+    "telephone": "+593981410309",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Calle Olmedo entre Azuay y Mercadillo",
