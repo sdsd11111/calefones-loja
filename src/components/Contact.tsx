@@ -6,6 +6,51 @@ import { Phone, MapPin, MessageCircle, Clock, ShieldCheck, ExternalLink, Image a
 
 // Max 3 image slots
 const MAX_IMAGES = 3;
+const MAX_DIMENSION = 800;
+const JPEG_QUALITY = 0.6;
+
+// Compress image client-side using Canvas before uploading
+function compressImageClientSide(file: File): Promise<{ compressedFile: File; preview: string }> {
+    return new Promise((resolve, reject) => {
+        const img = new window.Image();
+        img.onload = () => {
+            let { width, height } = img;
+
+            // Scale down if needed
+            if (width > MAX_DIMENSION || height > MAX_DIMENSION) {
+                if (width > height) {
+                    height = Math.round((height * MAX_DIMENSION) / width);
+                    width = MAX_DIMENSION;
+                } else {
+                    width = Math.round((width * MAX_DIMENSION) / height);
+                    height = MAX_DIMENSION;
+                }
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return reject(new Error('No canvas context'));
+            ctx.drawImage(img, 0, 0, width, height);
+
+            canvas.toBlob(
+                (blob) => {
+                    if (!blob) return reject(new Error('Compression failed'));
+                    const compressedFile = new File([blob], file.name.replace(/\.[^.]+$/, '.jpg'), {
+                        type: 'image/jpeg',
+                    });
+                    const preview = canvas.toDataURL('image/jpeg', JPEG_QUALITY);
+                    resolve({ compressedFile, preview });
+                },
+                'image/jpeg',
+                JPEG_QUALITY
+            );
+        };
+        img.onerror = () => reject(new Error('Could not load image'));
+        img.src = URL.createObjectURL(file);
+    });
+}
 
 export default function Contact() {
     const [isUploading, setIsUploading] = useState(false);
@@ -18,22 +63,24 @@ export default function Contact() {
         useRef<HTMLInputElement>(null),
     ];
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const file = e.target.files?.[0];
         if (!file) return;
-        if (file.size > 10 * 1024 * 1024) {
-            alert('La imagen es muy pesada. Máximo 10MB por foto.');
+        if (file.size > 25 * 1024 * 1024) {
+            alert('La imagen es muy pesada. Máximo 25MB por foto.');
             return;
         }
-        const reader = new FileReader();
-        reader.onloadend = () => {
+        try {
+            const { compressedFile, preview } = await compressImageClientSide(file);
             setImages(prev => {
                 const next = [...prev];
-                next[index] = { file, preview: reader.result as string };
+                next[index] = { file: compressedFile, preview };
                 return next;
             });
-        };
-        reader.readAsDataURL(file);
+        } catch (err) {
+            console.error('Error al comprimir imagen:', err);
+            alert('No se pudo procesar la imagen. Intenta con otra foto.');
+        }
     };
 
     const removeImage = (index: number) => {

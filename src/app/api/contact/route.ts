@@ -2,6 +2,18 @@ import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 import sharp from 'sharp';
 
+// Increase body size limit for this route (default is ~1MB)
+export const config = {
+  api: {
+    bodyParser: false,
+    responseLimit: false,
+  },
+};
+
+// Next.js App Router: increase body parser limit
+export const maxDuration = 30; // seconds
+export const dynamic = 'force-dynamic';
+
 async function compressImage(file: File): Promise<Buffer | null> {
   if (!file || file.size === 0) return null;
 
