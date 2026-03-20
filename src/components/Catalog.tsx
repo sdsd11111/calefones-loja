@@ -30,7 +30,7 @@ const products = [
         warranty: "12 meses",
         installation: "Incluida",
         description: "Este modelo proporciona un mayor caudal de agua caliente para un solo servicio, permitiendo una ducha más estable y confortable, incluso ante variaciones de presión. Un tamaño versátil para quienes quieren comodidad sin complicaciones.",
-        images: ["/images/CALEFON RCA 10 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón RCA 10 LTS externa.webp", "/images/catalog/Calefón RCA 10 LTS interna.webp"],
         features: ["Mayor caudal de agua", "Ducha estable y confortable", "Tamaño versátil"]
     },
     {
@@ -43,7 +43,7 @@ const products = [
         warranty: "12 meses",
         installation: "Incluida",
         description: "El calefón RCA de 20 litros es un modelo diseñado para brindar un servicio funcional y confiable. Abastece con normalidad hasta dos servicios simultáneos, lo que lo convierte en una opción adecuada para hogares que buscan agua caliente estable a un costo accesible.",
-        images: ["/images/Calefón RCA 20 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón RCA 20 LTS externa.webp", "/images/catalog/Calefón RCA 20 LTS interna.webp"],
         features: ["Servicio funcional y confiable", "Abastece dos servicios simultáneos", "Costo accesible"]
     },
     {
@@ -56,7 +56,7 @@ const products = [
         warranty: "24 meses",
         installation: "Incluida",
         description: "Ideal para viviendas de 1 a 2 plantas, el calefón FLAMEX de 20 litros ofrece un consumo eficiente, constante y seguro. Destaca por su durabilidad de 8 a 10 años y por utilizar componentes de fácil mantenimiento, con repuestos accesibles y compatibles.",
-        images: ["/images/CALEFON FLAMEX 20 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefon FLAMEX 20 litros externa.webp", "/images/catalog/Calefon FLAMEX 20 litros interna.webp"],
         features: ["Consumo eficiente y seguro", "Alta durabilidad (8-10 años)", "Fácil mantenimiento"]
     },
     {
@@ -69,7 +69,7 @@ const products = [
         warranty: "24 meses",
         installation: "Incluida",
         description: "Un calefón con historia y respaldo real. El modelo INSTAMATIC lleva más de 20 años siendo una de las marcas más utilizadas en Loja, elegido por su estabilidad, confianza y fácil acceso al soporte técnico a lo largo del tiempo.",
-        images: ["/images/Calefón Instamatic 20 Lts.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefon INSTAMATIC 20 LTS externa.webp", "/images/catalog/Calefon INSTAMATIC 20 LTS interna.webp"],
         features: ["Respaldo y confianza", "Estabilidad comprobada", "Fácil acceso a soporte técnico"]
     },
     {
@@ -95,7 +95,7 @@ const products = [
         warranty: "12 meses",
         installation: "Incluida",
         description: "Este modelo está pensado para quienes buscan mayor caudal de agua caliente sin elevar demasiado la inversión, el Calefón RCA 26 litros ofrece un rendimiento estable y eficiente para dos servicios simultáneos. Su mayor capacidad se traduce en más comodidad en cada ducha, manteniendo un equilibrio ideal entre consumo, funcionalidad y precio.",
-        images: ["/images/Calefon-a-Gas-RCA-26LT.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón RCA 26 LTS externa.webp", "/images/catalog/Calefón RCA 26 LTS interna.webp"],
         features: ["Mayor caudal de agua", "Rendimiento estable para dos servicios", "Equilibrio ideal"]
     },
     {
@@ -108,7 +108,7 @@ const products = [
         warranty: "18 meses",
         installation: "Incluida",
         description: "Este modelo de 26 litros destaca por su equilibrio entre eficiencia, confort y desempeño ya que su capacidad permite abastecer dos servicios simultáneos con un flujo constante de agua caliente, siendo una excelente opción para hogares que buscan rendimiento estable y una experiencia cómoda en el uso diario.",
-        images: ["/images/product-vaper-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón VAPER 26 LTS externa.webp", "/images/catalog/Calefón VAPER 26 LTS interna.webp"],
         features: ["Equilibrio entre eficiencia y confort", "Flujo constante de agua caliente", "Rendimiento estable"]
     },
     {
@@ -121,7 +121,7 @@ const products = [
         warranty: "24 meses",
         installation: "Incluida",
         description: "El calefón FLAMEX de 26 litros es una opción premium por durabilidad y resistencia; está fabricado con materiales de alta calidad que ofrece una vida útil estimada entre 10 y 12 años, manteniendo un funcionamiento estable y eficiente para tres servicios simultáneos. Una inversión accesible, pensada para quienes buscan tranquilidad y rendimiento a largo plazo.",
-        images: ["/images/Calefón FLAMEX 26 LTS.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/Calefón FLAMEX 26 LTS.webp", "/images/catalog/Calefon FLAMEX 26 litros interna.webp"],
         features: ["Opción premium y resistente", "Vida útil de 10 a 12 años", "Eficiente para tres servicios simultáneos"]
     },
     {
@@ -134,7 +134,7 @@ const products = [
         warranty: "24 meses",
         installation: "Incluida",
         description: "Es uno de los modelos más vendidos en Loja, reconocido por su confiabilidad y rendimiento a lo largo de los años. Su capacidad permite abastecer hasta tres servicios simultáneamente, ofreciendo un suministro estable de agua caliente incluso en demandas más exigentes.",
-        images: ["/images/product-instamatic-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón INSTAMATIC 26 LTS externa.webp", "/images/catalog/Calefón INSTAMATIC 26 LTS interna.webp"],
         features: ["Confiabilidad y rendimiento", "Abastece hasta tres servicios simultáneamente", "Suministro estable de agua caliente"]
     },
     {
@@ -160,7 +160,7 @@ const products = [
         warranty: "12 meses",
         installation: "Incluida",
         description: "Calefón a Gas marca XOHA de 20 litros. Ofrece un rendimiento confiable para el uso diario en hogares que buscan calidad a un precio competitivo.",
-        images: ["/images/product-xoha-20l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/catalog/Calefón XOHA 20 LTS externa.webp", "/images/catalog/Calefón XOHA 20 LTS interna.webp"],
         features: ["Rendimiento confiable", "Precio competitivo", "Sensor de seguridad"]
     },
     {
@@ -173,7 +173,7 @@ const products = [
         warranty: "12 meses",
         installation: "Incluida",
         description: "Calefón a Gas de Encendido Automático. El modelo INDRA de 26 litros garantiza agua caliente rápida y segura para toda la familia con un sistema de encendido eficiente.",
-        images: ["/images/product-indra-26l.webp", "/images/Calefón Instamatic 20 Lts adentro.webp"],
+        images: ["/images/product-indra-26l.webp", "/images/catalog/Calefón INDRA 26 Lts interno.webp"],
         features: ["Encendido automático", "Instalación incluida", "Alta capacidad"]
     },
     {
