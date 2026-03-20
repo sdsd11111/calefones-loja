@@ -17,10 +17,12 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Calefones Loja",
-    "image": "https://calefonesloja.com/Logo.jpg",
-    "@id": "https://calefonesloja.com",
-    "url": "https://calefonesloja.com",
+    "image": "https://www.calefonesloja.com/Logo.jpg",
+    "description": "Expertos en asesoramiento, reparación, mantenimiento y venta de calefones en Loja. Repuestos originales y servicio técnico garantizado.",
+    "@id": "https://www.calefonesloja.com",
+    "url": "https://www.calefonesloja.com",
     "telephone": "+593981410309",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Calle Olmedo entre Azuay y Mercadillo",
@@ -46,6 +48,33 @@ export default function Home() {
       ],
       "opens": "08:00",
       "closes": "18:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Calefones",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Reparación de Calefones a Domicilio en Loja"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mantenimiento Preventivo de Calefones"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Venta e Instalación de Calefones"
+          }
+        }
+      ]
     },
     "sameAs": [
       "https://www.facebook.com/calefonesloja",

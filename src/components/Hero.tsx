@@ -13,7 +13,7 @@ export default function Hero() {
                 <div className="absolute inset-0 lg:hidden">
                     <img
                         src="/images/hero-bg.webp"
-                        alt="Background"
+                        alt="Servicio de calefones en Loja - Especialistas en agua caliente"
                         className="w-full h-full object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-brand-celeste/40" />
@@ -23,7 +23,7 @@ export default function Hero() {
                 <div className="flex-1 relative hidden lg:block">
                     <img
                         src="/images/hero-bg.webp"
-                        alt="Servicio técnico profesional"
+                        alt="Servicio técnico profesional de calefones en Loja - Instalación y reparación"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-brand-celeste via-brand-celeste/20 to-transparent" />

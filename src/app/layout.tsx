@@ -15,12 +15,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://calefones-loja.vercel.app'),
+  metadataBase: new URL('https://www.calefonesloja.com'),
   title: {
     default: "Calefones Loja | Venta y Servicio Técnico en Loja, Ecuador",
     template: "%s | Calefones Loja"
   },
-  description: "Especialistas en venta, instalación y reparación de calefones en Loja. Repuestos originales Instamatic, YANG y Bosch. El mejor servicio técnico garantizado en el sur del Ecuador.",
+  description: "Expertos en asesoramiento, reparación, mantenimiento y venta de calefones en Loja. Repuestos originales Instamatic, YANG y RCA. El mejor servicio técnico garantizado.",
   keywords: [
     "calefones loja",
     "servicio técnico calefones loja",
@@ -58,15 +58,15 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   openGraph: {
     title: "Calefones Loja | Venta y Servicio Técnico Garantizado",
-    description: "Expertos en ingeniería térmica para tu hogar. Venta e instalación de las mejores marcas de calefones en Loja.",
-    url: 'https://calefones-loja.vercel.app',
+    description: "Expertos en asesoramiento, reparación, mantenimiento y venta de las mejores marcas de calefones en Loja.",
+    url: 'https://www.calefonesloja.com',
     siteName: 'Calefones Loja',
     images: [
       {
-        url: 'https://calefones-loja.vercel.app/Logo.jpg',
+        url: 'https://www.calefonesloja.com/Logo.jpg',
         width: 800,
         height: 600,
-        alt: 'Calefones Loja - Ingeniería Térmica',
+        alt: 'Calefones Loja - Venta y Servicio Técnico',
       },
     ],
     locale: 'es_EC',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Calefones Loja | Los mejores calefones en Loja",
     description: "Servicio técnico y venta de calefones con garantía total en Loja, Ecuador.",
-    images: ['https://calefones-loja.vercel.app/Logo.jpg'],
+    images: ['https://www.calefonesloja.com/Logo.jpg'],
   },
   robots: {
     index: true,
@@ -103,8 +103,49 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Calefones Loja",
+    "url": "https://www.calefonesloja.com",
+    "logo": "https://www.calefonesloja.com/Logo.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+593981410309",
+      "contactType": "customer service",
+      "areaServed": "EC",
+      "availableLanguage": "Spanish"
+    },
+    "sameAs": [
+      "https://www.facebook.com/calefonesloja",
+      "https://www.instagram.com/calefonesloja"
+    ]
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Calefones Loja",
+    "url": "https://www.calefonesloja.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.calefonesloja.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       <body
         className={`${anton.variable} ${montserrat.variable} font-sans antialiased overflow-x-hidden w-full`}
       >

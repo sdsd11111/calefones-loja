@@ -87,16 +87,6 @@ export default function AnnouncementPopup() {
 
                         </div>
 
-                        {/* Progress bar timer (visual only) */}
-                        <div className="h-1 bg-gray-100 w-full">
-                            <motion.div
-                                initial={{ width: '0%' }}
-                                animate={{ width: '100%' }}
-                                transition={{ duration: 10, ease: 'linear' }}
-                                onAnimationComplete={() => setIsVisible(false)}
-                                className="h-full bg-brand-blue"
-                            />
-                        </div>
                     </div>
                 </motion.div>
             )}

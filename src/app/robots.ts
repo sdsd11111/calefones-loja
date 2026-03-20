@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/admin/',
         },
-        sitemap: 'https://calefonesloja.com/sitemap.xml',
+        sitemap: 'https://www.calefonesloja.com/sitemap.xml',
     };
 }

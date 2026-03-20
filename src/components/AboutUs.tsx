@@ -125,7 +125,7 @@ export default function AboutUs() {
                             >
                                 <img
                                     src="/images/about-main.webp"
-                                    alt="Técnicos expertos en calefones"
+                                    alt="Personal técnico de Calefones Loja realizando una revisión de seguridad NTE INEN 2569"
                                     className="absolute inset-0 w-full h-full object-cover transform group-hover/img:scale-105 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent pointer-events-none" />

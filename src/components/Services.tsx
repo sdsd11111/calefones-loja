@@ -109,7 +109,7 @@ export default function Services() {
                             <div className="relative h-64 lg:h-80 overflow-hidden">
                                 <img
                                     src={service.image}
-                                    alt={service.title}
+                                    alt={`${service.title} - Servicio técnico garantizado en Loja`}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity pointer-events-none" />
@@ -220,7 +220,7 @@ export default function Services() {
                                         {selectedService && (
                                             <img
                                                 src={selectedService.image}
-                                                alt={selectedService.title}
+                                                alt={`Servicio de ${selectedService.title} en Loja - Calefones Loja`}
                                                 className="w-full h-full object-cover"
                                             />
                                         )}

@@ -281,7 +281,7 @@ export default function Catalog() {
                                 <div className="relative h-72 overflow-hidden bg-gray-100">
                                     <img
                                         src={product.images[0]}
-                                        alt={product.name}
+                                        alt={`Venta de ${product.name} en Loja - Calefón original con garantía`}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute top-4 left-4 flex flex-col gap-2">
